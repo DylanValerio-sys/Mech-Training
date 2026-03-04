@@ -4,12 +4,13 @@ Mech Training AI - Real-time automotive part detection overlay.
 Usage:
     python main.py                          Standard mode (general detection)
     python main.py --auto                   Automotive mode (parts/tools)
-    python main.py --auto --phone URL       Automotive mode with phone camera
+    python main.py --auto --cam 1           Use camera index 1 (e.g. DroidCam)
+    python main.py --auto --cam 2           Use camera index 2
 
-Phone webcam setup:
-    1. Install DroidCam on your phone (free on App Store / Play Store)
-    2. Open DroidCam, note the IP address shown (e.g. 192.168.1.5)
-    3. Run: python main.py --auto --phone http://192.168.1.5:4747/video
+DroidCam setup:
+    1. Install DroidCam app on phone + DroidCam Client on PC
+    2. Connect them (they'll show "connected")
+    3. Run: python main.py --auto --cam 1   (try 1 or 2 for DroidCam)
 
 Controls:
     q     - Quit the application
@@ -32,16 +33,15 @@ from modules.overlay import OverlayRenderer
 
 def get_camera_source(config):
     """Determine camera source from command-line args or config."""
-    # Check for --phone flag with URL
-    if "--phone" in sys.argv:
-        idx = sys.argv.index("--phone")
+    # Check for --cam flag with index number
+    if "--cam" in sys.argv:
+        idx = sys.argv.index("--cam")
         if idx + 1 < len(sys.argv):
-            url = sys.argv[idx + 1]
-            print(f"  Phone camera: {url}")
-            return url
+            cam_idx = int(sys.argv[idx + 1])
+            print(f"  Using camera index: {cam_idx}")
+            return cam_idx
         else:
-            print("ERROR: --phone requires a URL argument")
-            print("Example: python main.py --auto --phone http://192.168.1.5:4747/video")
+            print("ERROR: --cam requires a number (e.g. --cam 1)")
             sys.exit(1)
 
     # Check for --video flag with file path

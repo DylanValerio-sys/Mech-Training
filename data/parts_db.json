@@ -1,0 +1,168 @@
+{
+    "alternator": {
+        "category": "part",
+        "description": "Converts mechanical energy to electrical energy to charge the battery and power electrical systems",
+        "location": "Front of engine, driven by serpentine belt",
+        "common_issues": ["Bearing failure", "Voltage regulator failure", "Belt slip", "Diode failure"],
+        "safety": "Disconnect battery before removal",
+        "tools_needed": ["Socket set", "Wrench set", "Belt tensioner tool"],
+        "difficulty": "intermediate"
+    },
+    "battery": {
+        "category": "part",
+        "description": "Stores electrical energy to start the engine and power accessories when engine is off",
+        "location": "Engine bay, usually driver or passenger side",
+        "common_issues": ["Corrosion on terminals", "Dead cells", "Swollen case", "Low electrolyte"],
+        "safety": "Disconnect negative terminal first. Avoid sparks near battery (hydrogen gas risk)",
+        "tools_needed": ["Wrench (10mm typical)", "Wire brush", "Battery terminal cleaner"],
+        "difficulty": "beginner"
+    },
+    "brake caliper": {
+        "category": "part",
+        "description": "Hydraulic clamp that squeezes brake pads against the rotor to slow the vehicle",
+        "location": "Behind each wheel, mounted to the steering knuckle",
+        "common_issues": ["Sticking piston", "Torn dust boot", "Leaking seal", "Seized slide pins"],
+        "safety": "Support vehicle on jack stands. Never work under a vehicle on a jack alone",
+        "tools_needed": ["Socket set", "C-clamp or brake piston tool", "Brake cleaner"],
+        "difficulty": "intermediate"
+    },
+    "brake disc": {
+        "category": "part",
+        "description": "Metal disc that rotates with the wheel; brake pads clamp against it to create friction",
+        "location": "Behind each wheel",
+        "common_issues": ["Warping", "Scoring", "Minimum thickness exceeded", "Rust buildup"],
+        "safety": "Ensure vehicle is securely supported before removal",
+        "tools_needed": ["Lug wrench", "Socket set", "Torque wrench"],
+        "difficulty": "intermediate"
+    },
+    "coolant reservoir": {
+        "category": "part",
+        "description": "Overflow tank that stores excess coolant as the engine heats and cools",
+        "location": "Engine bay, usually near the radiator",
+        "common_issues": ["Cracking", "Leaking", "Discolored coolant", "Low level"],
+        "safety": "NEVER open when engine is hot. Pressurized system can cause burns",
+        "tools_needed": ["Pliers", "Screwdriver"],
+        "difficulty": "beginner"
+    },
+    "engine block": {
+        "category": "part",
+        "description": "Main structure of the engine containing cylinders, coolant passages, and oil galleries",
+        "location": "Center of engine bay",
+        "common_issues": ["Cracked block", "Cylinder wall scoring", "Coolant leak into oil", "Freeze plug failure"],
+        "safety": "Major repair - requires engine removal in most cases",
+        "tools_needed": ["Full mechanic tool set", "Engine hoist", "Torque wrench"],
+        "difficulty": "advanced"
+    },
+    "oil filter": {
+        "category": "part",
+        "description": "Filters contaminants from engine oil to protect internal engine components",
+        "location": "Side or bottom of engine block",
+        "common_issues": ["Clogged filter", "Leaking gasket", "Over-tightened", "Wrong filter size"],
+        "safety": "Hot oil can burn. Let engine cool before changing",
+        "tools_needed": ["Oil filter wrench", "Oil drain pan", "Funnel"],
+        "difficulty": "beginner"
+    },
+    "radiator": {
+        "category": "part",
+        "description": "Heat exchanger that cools engine coolant using airflow",
+        "location": "Front of engine bay, behind the grille",
+        "common_issues": ["Leaking", "Clogged fins", "Cracked plastic tanks", "Internal blockage"],
+        "safety": "Never open radiator cap when hot. Allow full cool-down first",
+        "tools_needed": ["Socket set", "Pliers", "Drain pan"],
+        "difficulty": "intermediate"
+    },
+    "serpentine belt": {
+        "category": "part",
+        "description": "Single belt that drives multiple accessories: alternator, power steering, AC compressor, water pump",
+        "location": "Front of engine, wraps around multiple pulleys",
+        "common_issues": ["Cracking", "Glazing", "Squealing", "Misalignment", "Fraying"],
+        "safety": "Ensure engine is off. Belt can cause serious injury if caught",
+        "tools_needed": ["Belt tensioner tool or long wrench", "Belt routing diagram"],
+        "difficulty": "beginner"
+    },
+    "spark plug": {
+        "category": "part",
+        "description": "Creates electrical spark to ignite the air-fuel mixture in each cylinder",
+        "location": "Top of engine, one per cylinder (screwed into cylinder head)",
+        "common_issues": ["Worn electrode", "Carbon fouling", "Oil fouling", "Incorrect gap"],
+        "safety": "Work on a cool engine. Remove one at a time to avoid mixing up wire order",
+        "tools_needed": ["Spark plug socket", "Ratchet", "Gap gauge", "Torque wrench"],
+        "difficulty": "beginner"
+    },
+    "air filter": {
+        "category": "part",
+        "description": "Filters dust and debris from air entering the engine for combustion",
+        "location": "Air filter box, usually top or side of engine bay",
+        "common_issues": ["Clogged", "Torn filter media", "Poor seal"],
+        "safety": "No special precautions needed",
+        "tools_needed": ["None or screwdriver for airbox clips"],
+        "difficulty": "beginner"
+    },
+    "exhaust manifold": {
+        "category": "part",
+        "description": "Collects exhaust gases from all cylinders and routes them to the exhaust pipe",
+        "location": "Side of engine block, connects to cylinder head",
+        "common_issues": ["Cracked manifold", "Leaking gasket", "Broken studs", "Warping"],
+        "safety": "Extremely hot during and after operation. Allow full cool-down",
+        "tools_needed": ["Socket set", "Penetrating oil", "Torque wrench"],
+        "difficulty": "advanced"
+    },
+    "starter motor": {
+        "category": "part",
+        "description": "Electric motor that cranks the engine to start it",
+        "location": "Lower side of engine, connects to flywheel/flexplate",
+        "common_issues": ["Solenoid failure", "Worn brushes", "Bendix gear wear", "Clicking no start"],
+        "safety": "Disconnect battery before working on starter to prevent accidental engagement",
+        "tools_needed": ["Socket set", "Wrench set"],
+        "difficulty": "intermediate"
+    },
+    "turbocharger": {
+        "category": "part",
+        "description": "Uses exhaust gas energy to compress intake air for more engine power",
+        "location": "Attached to exhaust manifold",
+        "common_issues": ["Oil leak", "Bearing failure", "Wastegate stuck", "Boost leak"],
+        "safety": "Extremely hot. Allow extended cool-down before touching",
+        "tools_needed": ["Socket set", "Wrench set", "Torque wrench"],
+        "difficulty": "advanced"
+    },
+    "wrench": {
+        "category": "tool",
+        "description": "Hand tool for gripping and turning nuts and bolts",
+        "tip": "Use the correct size to avoid rounding off bolt heads. Pull toward you rather than pushing away"
+    },
+    "socket wrench": {
+        "category": "tool",
+        "description": "Ratcheting wrench with interchangeable socket heads for different bolt sizes",
+        "tip": "Listen for the ratchet click direction. Use extensions for hard-to-reach bolts"
+    },
+    "screwdriver": {
+        "category": "tool",
+        "description": "Tool for driving screws. Common types: Phillips (+) and flathead (-)",
+        "tip": "Use the correct size and type to avoid stripping the screw head"
+    },
+    "pliers": {
+        "category": "tool",
+        "description": "Gripping tool for holding, bending, or cutting wire and small parts",
+        "tip": "Do not use pliers on bolts - use a wrench instead to avoid rounding"
+    },
+    "torque wrench": {
+        "category": "tool",
+        "description": "Precision wrench that measures torque applied to a bolt",
+        "tip": "Always use when specified in service manual. Over-torquing can strip threads or crack parts"
+    },
+    "jack": {
+        "category": "tool",
+        "description": "Hydraulic device for lifting a vehicle off the ground",
+        "tip": "Always place on designated jack points. NEVER work under a vehicle supported only by a jack"
+    },
+    "jack stand": {
+        "category": "tool",
+        "description": "Static support stand placed under vehicle after lifting with a jack",
+        "tip": "Mandatory safety equipment. Place on solid frame points after jacking"
+    },
+    "multimeter": {
+        "category": "tool",
+        "description": "Electronic test instrument for measuring voltage, current, and resistance",
+        "tip": "Set to correct measurement mode before testing. Check battery voltage: healthy = 12.6V+"
+    }
+}

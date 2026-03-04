@@ -2,8 +2,14 @@
 Mech Training AI - Real-time automotive part detection overlay.
 
 Usage:
-    python main.py              Run in standard mode (general object detection)
-    python main.py --auto       Run in automotive mode (YOLO-World parts/tools)
+    python main.py                          Standard mode (general detection)
+    python main.py --auto                   Automotive mode (parts/tools)
+    python main.py --auto --phone URL       Automotive mode with phone camera
+
+Phone webcam setup:
+    1. Install DroidCam on your phone (free on App Store / Play Store)
+    2. Open DroidCam, note the IP address shown (e.g. 192.168.1.5)
+    3. Run: python main.py --auto --phone http://192.168.1.5:4747/video
 
 Controls:
     q     - Quit the application
@@ -24,11 +30,38 @@ from modules.detector import Detector
 from modules.overlay import OverlayRenderer
 
 
+def get_camera_source(config):
+    """Determine camera source from command-line args or config."""
+    # Check for --phone flag with URL
+    if "--phone" in sys.argv:
+        idx = sys.argv.index("--phone")
+        if idx + 1 < len(sys.argv):
+            url = sys.argv[idx + 1]
+            print(f"  Phone camera: {url}")
+            return url
+        else:
+            print("ERROR: --phone requires a URL argument")
+            print("Example: python main.py --auto --phone http://192.168.1.5:4747/video")
+            sys.exit(1)
+
+    # Check for --video flag with file path
+    if "--video" in sys.argv:
+        idx = sys.argv.index("--video")
+        if idx + 1 < len(sys.argv):
+            path = sys.argv[idx + 1]
+            print(f"  Video file: {path}")
+            return path
+        else:
+            print("ERROR: --video requires a file path")
+            sys.exit(1)
+
+    return config["camera_index"]
+
+
 def main():
     config = load_config()
-
-    # Check command-line flag for automotive mode
     mode = "automotive" if "--auto" in sys.argv else "standard"
+    camera_source = get_camera_source(config)
 
     print("=" * 50)
     print("  Mech Training AI - Starting up...")
@@ -41,14 +74,14 @@ def main():
     # Initialize camera
     print("\nOpening camera...")
     camera = Camera(
-        source=config["camera_index"],
+        source=camera_source,
         width=config["frame_width"],
         height=config["frame_height"],
     )
 
     # Initialize detector
     if mode == "automotive":
-        print("Loading YOLO-World automotive model (first run downloads ~150MB)...")
+        print("Loading YOLO-World automotive model (first run downloads ~50MB)...")
     else:
         print("Loading YOLOv8n model (first run downloads ~6MB)...")
 
@@ -56,6 +89,8 @@ def main():
         model_path=config["model_path"],
         confidence=config["confidence_threshold"],
         mode=mode,
+        infer_size=416,    # Smaller = faster on CPU
+        skip_frames=3,     # Only run AI every 3rd frame for smooth video
     )
 
     # Initialize overlay
@@ -74,7 +109,7 @@ def main():
             print("Camera disconnected.")
             break
 
-        # Detect objects in the current frame
+        # Detect objects (uses frame skipping internally for performance)
         detections = detector.detect(frame)
 
         # Draw overlay on the frame
@@ -111,10 +146,12 @@ def main():
                 model_path=config["model_path"],
                 confidence=detector.confidence,
                 mode=new_mode,
+                infer_size=416,
+                skip_frames=3,
             )
             overlay.mode_label = f"MODE: {new_mode.upper()}"
             camera = Camera(
-                source=config["camera_index"],
+                source=camera_source,
                 width=config["frame_width"],
                 height=config["frame_height"],
             )

@@ -34,22 +34,35 @@ class Detector:
     Supports two modes:
     - 'standard': Pre-trained YOLOv8 with 80 COCO classes
     - 'automotive': YOLO-World open-vocabulary with automotive parts/tools
+
+    Uses frame skipping to maintain smooth video on slow hardware:
+    detection runs every N frames, cached results are reused in between.
     """
 
-    def __init__(self, model_path="yolov8n.pt", confidence=0.5, mode="standard"):
+    def __init__(self, model_path="yolov8n.pt", confidence=0.5, mode="standard",
+                 infer_size=416, skip_frames=3):
         self.confidence = confidence
         self.mode = mode
+        self.infer_size = infer_size
+        self.skip_frames = skip_frames
+        self._frame_count = 0
+        self._cached_detections = None
 
         if mode == "automotive":
-            self.model = YOLO("yolov8l-worldv2.pt")
+            # Use SMALL model instead of large — much faster on CPU
+            self.model = YOLO("yolov8s-worldv2.pt")
             classes = AUTO_PARTS + AUTO_TOOLS
             self.model.set_classes(classes)
-            print(f"  YOLO-World loaded with {len(classes)} automotive classes")
+            print(f"  YOLO-World (small) loaded with {len(classes)} automotive classes")
+            print(f"  Inference size: {infer_size}px | Frame skip: every {skip_frames} frames")
         else:
             self.model = YOLO(model_path)
 
     def detect(self, frame):
-        """Run detection on a frame and return a list of detections.
+        """Run detection with frame skipping for performance.
+
+        Only runs the AI model every N frames. Returns cached results
+        on skipped frames so the video stays smooth.
 
         Each detection is a dict with:
             - class_name: str
@@ -57,7 +70,14 @@ class Detector:
             - box: tuple (x1, y1, x2, y2) in pixel coordinates
             - category: str ('part', 'tool', or 'object')
         """
-        results = self.model(frame, conf=self.confidence, verbose=False)
+        self._frame_count += 1
+
+        # Only run inference every N frames; reuse cached results on others
+        if self._cached_detections is not None and self._frame_count % self.skip_frames != 0:
+            return self._cached_detections
+
+        results = self.model(frame, conf=self.confidence, imgsz=self.infer_size,
+                             verbose=False)
         detections = []
 
         for result in results:
@@ -77,4 +97,5 @@ class Detector:
                     "category": PART_CATEGORIES.get(class_name, "object"),
                 })
 
+        self._cached_detections = detections
         return detections

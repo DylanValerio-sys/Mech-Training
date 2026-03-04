@@ -1,23 +1,18 @@
 from ultralytics import YOLO
 
-# Default automotive parts and tools for YOLO-World open-vocabulary detection
+# Focused automotive parts list — shorter, simpler names for better zero-shot detection.
+# YOLO-World works best with ~25 visually distinctive single-word or short class names.
 AUTO_PARTS = [
-    "alternator", "battery", "brake caliper", "brake disc", "brake pad",
-    "coolant reservoir", "engine block", "exhaust manifold", "exhaust pipe",
-    "fuel injector", "fuse box", "oil filter", "oil cap", "radiator",
-    "serpentine belt", "spark plug", "starter motor", "thermostat",
-    "turbocharger", "water pump", "air filter", "power steering pump",
-    "valve cover", "intake manifold", "catalytic converter", "muffler",
-    "drive shaft", "axle", "suspension spring", "shock absorber",
-    "wheel hub", "tire", "rim", "headlight", "tail light",
-    "windshield wiper", "side mirror", "bumper", "hood", "fender",
+    "battery", "alternator", "radiator", "engine",
+    "belt", "air filter", "oil filter", "exhaust",
+    "turbo", "tire", "wheel", "headlight",
+    "brake", "bumper", "hood", "wiper",
+    "mirror", "hose", "fan", "fuse box",
+    "spark plug", "muffler", "coolant tank",
 ]
 
 AUTO_TOOLS = [
-    "wrench", "socket wrench", "screwdriver", "pliers", "hammer",
-    "torque wrench", "ratchet", "jack", "jack stand",
-    "oil drain pan", "funnel", "multimeter", "flashlight",
-    "pry bar", "wire cutters", "tape measure",
+    "wrench", "screwdriver", "pliers", "hammer", "socket",
 ]
 
 # Category mapping for color-coding
@@ -39,9 +34,8 @@ class Detector:
     detection runs every N frames, cached results are reused in between.
     """
 
-    def __init__(self, model_path="yolov8n.pt", confidence=0.5, mode="standard",
-                 infer_size=416, skip_frames=3):
-        self.confidence = confidence
+    def __init__(self, model_path="yolov8n.pt", confidence=0.15, mode="standard",
+                 infer_size=640, skip_frames=4):
         self.mode = mode
         self.infer_size = infer_size
         self.skip_frames = skip_frames
@@ -49,13 +43,15 @@ class Detector:
         self._cached_detections = None
 
         if mode == "automotive":
-            # Use SMALL model instead of large — much faster on CPU
+            # Use lower confidence for zero-shot detection (default 0.15)
+            self.confidence = confidence if confidence < 0.5 else 0.15
             self.model = YOLO("yolov8s-worldv2.pt")
             classes = AUTO_PARTS + AUTO_TOOLS
             self.model.set_classes(classes)
-            print(f"  YOLO-World (small) loaded with {len(classes)} automotive classes")
-            print(f"  Inference size: {infer_size}px | Frame skip: every {skip_frames} frames")
+            print(f"  YOLO-World loaded with {len(classes)} automotive classes")
+            print(f"  Confidence: {self.confidence:.0%} | Size: {infer_size}px | Skip: {skip_frames}")
         else:
+            self.confidence = confidence
             self.model = YOLO(model_path)
 
     def detect(self, frame):

@@ -5,7 +5,7 @@ Usage:
     python main.py                          Standard mode (general detection)
     python main.py --auto                   Automotive mode (parts/tools)
     python main.py --auto --cam 1           Use camera index 1 (e.g. DroidCam)
-    python main.py --auto --cam 2           Use camera index 2
+    python main.py --auto --mute            Automotive mode without audio
 
 DroidCam setup:
     1. Install DroidCam app on phone + DroidCam Client on PC
@@ -29,6 +29,7 @@ from modules.config import load_config
 from modules.camera import Camera
 from modules.detector import Detector
 from modules.overlay import OverlayRenderer
+from modules.audio import AudioGuidance
 
 
 def get_camera_source(config):
@@ -61,6 +62,7 @@ def get_camera_source(config):
 def main():
     config = load_config()
     mode = "automotive" if "--auto" in sys.argv else "standard"
+    muted = "--mute" in sys.argv
     camera_source = get_camera_source(config)
 
     print("=" * 50)
@@ -68,7 +70,7 @@ def main():
     print("=" * 50)
     print(f"  Mode: {mode.upper()}")
     print(f"  Confidence: {config['confidence_threshold']}")
-    print(f"  Resolution: {config['frame_width']}x{config['frame_height']}")
+    print(f"  Audio: {'OFF' if muted else 'ON'}")
     print("=" * 50)
 
     # Initialize camera
@@ -81,16 +83,16 @@ def main():
 
     # Initialize detector
     if mode == "automotive":
-        print("Loading YOLO-World automotive model (first run downloads ~50MB)...")
+        print("Loading YOLO-World automotive model...")
     else:
-        print("Loading YOLOv8n model (first run downloads ~6MB)...")
+        print("Loading YOLOv8n model...")
 
     detector = Detector(
         model_path=config["model_path"],
         confidence=config["confidence_threshold"],
         mode=mode,
-        infer_size=416,    # Smaller = faster on CPU
-        skip_frames=3,     # Only run AI every 3rd frame for smooth video
+        infer_size=640,    # Higher res for better part detection
+        skip_frames=4,     # Process every 4th frame for smooth video
     )
 
     # Initialize overlay
@@ -99,6 +101,12 @@ def main():
         show_confidence=config["show_confidence"],
     )
     overlay.mode_label = f"MODE: {mode.upper()}"
+
+    # Initialize audio guidance
+    audio = None
+    if not muted:
+        audio = AudioGuidance(cooldown=5.0, rate=160)
+        print("  Audio guidance: ON (5s cooldown per part)")
 
     print("\nReady! Point your camera at automotive parts or tools.")
     print("Controls: 'q' quit | '+'/'-' confidence | 'm' toggle mode\n")
@@ -111,6 +119,10 @@ def main():
 
         # Detect objects (uses frame skipping internally for performance)
         detections = detector.detect(frame)
+
+        # Announce detected parts via audio
+        if audio and detections:
+            audio.announce_detections(detections)
 
         # Draw overlay on the frame
         annotated = overlay.draw(frame, detections)
@@ -134,7 +146,7 @@ def main():
             detector.confidence = min(detector.confidence + 0.05, 0.95)
             print(f"Confidence threshold: {detector.confidence:.0%}")
         elif key == ord("-"):
-            detector.confidence = max(detector.confidence - 0.05, 0.10)
+            detector.confidence = max(detector.confidence - 0.05, 0.05)
             print(f"Confidence threshold: {detector.confidence:.0%}")
         elif key == ord("m"):
             # Toggle mode — requires reloading the model
@@ -146,8 +158,8 @@ def main():
                 model_path=config["model_path"],
                 confidence=detector.confidence,
                 mode=new_mode,
-                infer_size=416,
-                skip_frames=3,
+                infer_size=640,
+                skip_frames=4,
             )
             overlay.mode_label = f"MODE: {new_mode.upper()}"
             camera = Camera(
@@ -157,6 +169,8 @@ def main():
             )
             print("Ready!\n")
 
+    if audio:
+        audio.shutdown()
     camera.release()
     cv2.destroyAllWindows()
     print("Shutdown complete.")

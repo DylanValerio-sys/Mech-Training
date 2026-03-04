@@ -2,7 +2,7 @@
     "camera_index": 0,
     "frame_width": 1280,
     "frame_height": 720,
-    "confidence_threshold": 0.5,
+    "confidence_threshold": 0.15,
     "model_path": "yolov8n.pt",
     "window_name": "Mech Training AI",
     "show_fps": true,

@@ -1,0 +1,718 @@
+{
+  "vehicle": "Hino 300 Series Wide Cab",
+  "service_type": "A Service",
+  "total_checks": 83,
+  "sections": [
+    {
+      "id": 1,
+      "name": "Around the Cab Inspection",
+      "steps": [
+        {
+          "check": 1,
+          "title": "Overall Visual Inspection",
+          "description": "Overall visual inspection for any damage",
+          "detail": "Walk around the cab and check the exterior for any visible damage, dents, scratches, or defects.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 2,
+          "title": "Mirrors & Brackets",
+          "description": "Check and secure mirrors and brackets",
+          "detail": "Check that the side view mirror is not loose, damaged, or broken. Ensure brackets are secure.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 3,
+          "title": "Driver Seat & Seat Belt",
+          "description": "Check drivers (O/S) seat operation and seat belt function and anchorage",
+          "detail": "Check the driver's seat position adjustment and seat belt operation and security.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 4,
+          "title": "Windows & Doors",
+          "description": "Check operation of windows and doors",
+          "detail": "Check windows and doors for correct operation. Open and close each to verify smooth function.",
+          "tools": "",
+          "torque": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Driving to Bay",
+      "steps": [
+        {
+          "check": 5,
+          "title": "DXII Diagnostics",
+          "description": "DXII - plug in and check for updates",
+          "detail": "Plug in DXII diagnostic tool and check for any system updates or fault codes.",
+          "tools": "DXII",
+          "torque": ""
+        },
+        {
+          "check": 6,
+          "title": "Starter & Engine Stop",
+          "description": "Check starter motor operation and engine stop function",
+          "detail": "Check operation of starter and confirm correct operation of stop function.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 7,
+          "title": "Abnormal Noises",
+          "description": "Report all abnormal noises and vibrations",
+          "detail": "Listen for any unusual sounds or vibrations from the engine, transmission, or chassis while driving.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 8,
+          "title": "Gauges & Instruments",
+          "description": "Check operation of all gauges and instruments",
+          "detail": "Check the operation of the tachometer, fuel gauge, water temperature gauge, and air pressure gauge.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 9,
+          "title": "Wipers & Washers",
+          "description": "Check wiper/washer operation arc and blade condition",
+          "detail": "Check that the window wiper/washer operation and condition. Also check the nozzles are not loose or damaged.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 10,
+          "title": "Accelerator Pedal",
+          "description": "Check accelerator pedal and linkage for operation and wear",
+          "detail": "Check all pedals and linkage for wear and correct operation. Ensure smooth travel.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 11,
+          "title": "Brake Pedal Travel",
+          "description": "Check brake pedal travel and adjust if required",
+          "detail": "Check that the play of brake pedal is within the specified range and adjust if required.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 12,
+          "title": "Park Brake",
+          "description": "Check and adjust park brake operation",
+          "detail": "Vehicles with centre parking brake: Check the pull allowance of the parking lever. Vehicles with wheel parking brake: Check for the sound of escaping air at the time of brake operation.",
+          "tools": "10mm Combination Spanner",
+          "torque": ""
+        },
+        {
+          "check": 13,
+          "title": "Transmission Controls",
+          "description": "Check transmission controls",
+          "detail": "Check that the shift lever operates smoothly and engages all gears correctly.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 14,
+          "title": "Coolant Level",
+          "description": "Check coolant level and top up as required",
+          "detail": "Check coolant level and concentration. Top up if below minimum mark.",
+          "tools": "",
+          "torque": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "On Hoist (Lowered)",
+      "steps": [
+        {
+          "check": 15,
+          "title": "All Lights",
+          "description": "Check all lights for operation",
+          "detail": "Test all lights for operation: headlights, indicators, stop lights, fog lights, interior lights, etc.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 16,
+          "title": "Reverse Buzzer",
+          "description": "Check reverse buzzer",
+          "detail": "Check the operation of the back-up lamp and buzzer sound.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 17,
+          "title": "Auxiliary Lights",
+          "description": "Check clearance and auxiliary or driving lights",
+          "detail": "Check the operation of auxiliary lights, clearance lights, and driving lights.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 18,
+          "title": "Brake/Clutch Fluid",
+          "description": "Check and top up brake (clutch) fluid reservoir - report any leaks",
+          "detail": "Check that the brake and clutch fluid level is within the specified range. Report any leaks found.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 19,
+          "title": "Washer Bottle & Cabin Filter",
+          "description": "Check and top up windscreen washer bottle, check the cabin air filter",
+          "detail": "Check that the windshield washer solution level is within the specified range. Inspect cabin air filter condition.",
+          "tools": "Air Blower",
+          "torque": ""
+        },
+        {
+          "check": 20,
+          "title": "Passenger Seat & Belt",
+          "description": "Check passengers (N/S) seat operation and seat belt function and anchorage",
+          "detail": "Check the passenger's seat position adjustment and seat belt operation. Including the centre seat.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 21,
+          "title": "Air Cleaner Element",
+          "description": "Inspect and clean air cleaner element",
+          "detail": "Inspect and clean air cleaner element with compressed air. Check that piping is not loose or crushed.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 22,
+          "title": "Fuel Filters",
+          "description": "Replace fuel sediment filter and fuel filter",
+          "detail": "Remove and replace fuel sediment filter. Check that filter, hose, and pipes are not loose or leaking fuel.",
+          "tools": "100mm Filter Strap",
+          "torque": ""
+        },
+        {
+          "check": 23,
+          "title": "Battery Box",
+          "description": "Inspect battery box",
+          "detail": "Check battery box security. Ensure carrier and cables are not loose.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 24,
+          "title": "Battery Load Test",
+          "description": "Load test battery and report",
+          "detail": "Test battery specific gravity with hydrometer and report condition. Load test if required.",
+          "tools": "Hydrometer/Load Tester",
+          "torque": ""
+        },
+        {
+          "check": 25,
+          "title": "Battery Electrolyte",
+          "description": "Top up battery electrolyte",
+          "detail": "Check battery electrolyte level and top up as required to within the specified range.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 26,
+          "title": "Battery Terminals",
+          "description": "Clean and lubricate battery terminals and check for corrosion, cabin air cleaner",
+          "detail": "Clean and lubricate battery terminals with terminal lube. Check for corrosion on terminals and cables.",
+          "tools": "Wire Brush/Terminal Lube",
+          "torque": ""
+        },
+        {
+          "check": 27,
+          "title": "Body Lubrication",
+          "description": "Clean and lubricate all body - door hinges, locks, tailgate pivots and locks, tipper pivots and hoist pivots",
+          "detail": "Check and lubricate all body fixtures: door hinges, locks, tailgate pivots and locks, tipper pivots and hoist points.",
+          "tools": "",
+          "torque": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "On Hoist (Raised)",
+      "steps": [
+        {
+          "check": 28,
+          "title": "Fuel & PS Hoses",
+          "description": "Inspect all fuel lines and power steering hoses for chafing and leaks",
+          "detail": "Inspect all fuel lines and power steering hoses for chafing and leaks. Look for wear marks and fluid seepage.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 29,
+          "title": "Steering Linkages",
+          "description": "Inspect steering linkages - lubricate all points - report all wear and damage",
+          "detail": "Check that there is no fluid leakage from the gear box and PS pipes. Check the universal joint for stiffness. Lubricate all grease points.",
+          "tools": "Grease Gun",
+          "torque": ""
+        },
+        {
+          "check": 30,
+          "title": "Drain Engine Oil",
+          "description": "Drain engine oil",
+          "detail": "Remove drain plug and drain engine oil completely. Clean drain plug and surrounding area.",
+          "tools": "24mm Spanner/Scraper",
+          "torque": "41 Nm"
+        },
+        {
+          "check": 31,
+          "title": "Replace Oil Filter",
+          "description": "Replace oil filter",
+          "detail": "Remove old oil filter using strap wrench. Install new filter, hand tighten then snug with tool.",
+          "tools": "110mm Filter Strap",
+          "torque": ""
+        },
+        {
+          "check": 32,
+          "title": "Front Axle U-Bolts",
+          "description": "Tighten front axle U-bolts and spring bands",
+          "detail": "Check that the leaf spring U-bolts are tightened correctly to specified torque.",
+          "tools": "24mm/27mm Socket",
+          "torque": "195 Nm"
+        },
+        {
+          "check": 33,
+          "title": "Engine Mounts",
+          "description": "Check all engine mounts",
+          "detail": "Check that engine mounting bolts are not loose. Inspect rubber mounts for cracking or deterioration.",
+          "tools": "17mm Spanner",
+          "torque": "98 Nm"
+        },
+        {
+          "check": 34,
+          "title": "Transmission Mounts",
+          "description": "Check transmissions mounts",
+          "detail": "Check that transmission mounting bolts are secure. Inspect mount condition.",
+          "tools": "17mm Spanner",
+          "torque": "62 Nm"
+        },
+        {
+          "check": 35,
+          "title": "Transmission Linkage",
+          "description": "Check transmissions linkage connections",
+          "detail": "Check that transmission linkage connections are secure and operate smoothly.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 36,
+          "title": "DPR Sensor Wiring",
+          "description": "Check DPR sensor wiring and hose for damage",
+          "detail": "Inspect DPR sensor wiring and hose connections for damage, chafing, or loose connectors.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 37,
+          "title": "DPR Exhaust System",
+          "description": "Check DPR exhaust system for tension and leaks",
+          "detail": "Check that the exhaust pipe, DPR filter and hanger are not loose and for exhaust leaks.",
+          "tools": "14mm Spanner",
+          "torque": ""
+        },
+        {
+          "check": 38,
+          "title": "Gearbox Oil Level",
+          "description": "Check gearbox oil level and top up - report any leaks (manual trans only)",
+          "detail": "Check that the transmission oil level is up to the position of the filling plug. Top up as required.",
+          "tools": "24mm Spanner",
+          "torque": "50 Nm"
+        },
+        {
+          "check": 39,
+          "title": "Clutch Free Travel",
+          "description": "Check clutch free travel and report hydraulic oil leaks",
+          "detail": "Check that the clutch pedal free play is within specification. Check secondary cylinder is not loose. Report any hydraulic leaks.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 40,
+          "title": "Universal Joints",
+          "description": "Inspect and lubricate universal joints and drive shafts",
+          "detail": "Check that the propeller shaft and centre bearing bolts are not loose. Lubricate universal joints with grease gun.",
+          "tools": "Grease Gun",
+          "torque": ""
+        },
+        {
+          "check": 41,
+          "title": "Park Brake Linings",
+          "description": "Check park brake lining thickness",
+          "detail": "Measure park brake lining thickness with vernier calipers. Report if below minimum specification.",
+          "tools": "Vernier Calipers",
+          "torque": ""
+        },
+        {
+          "check": 42,
+          "title": "Body Mountings",
+          "description": "Secure all body/equipment mountings and U-bolts",
+          "detail": "Check that the rear body and frame brackets are not loose. Tighten all body mounting U-bolts.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 43,
+          "title": "Differential Oil",
+          "description": "Check differential oil level and top up as required - report any leaks",
+          "detail": "Check that the differential gear oil level is at the position of the filler plug. Top up as required.",
+          "tools": "24mm Spanner",
+          "torque": "50 Nm"
+        },
+        {
+          "check": 44,
+          "title": "Shackles & Wear Plates",
+          "description": "Inspect shackles and wear plates - lubricate all points (if applicable)",
+          "detail": "Check suspension shackles and wear plates for excessive wear. Lubricate all grease points.",
+          "tools": "Grease Gun",
+          "torque": ""
+        },
+        {
+          "check": 45,
+          "title": "Rear Axle U-Bolts",
+          "description": "Tighten rear axle U-bolts and spring bands",
+          "detail": "Check that the rear leaf spring U-bolts are tightened correctly to specified torque.",
+          "tools": "24mm/27mm Socket",
+          "torque": "195 Nm"
+        },
+        {
+          "check": 46,
+          "title": "Bridging Jacks",
+          "description": "Align bridging jacks to axles and raise vehicle",
+          "detail": "Position bridging jacks under axles. Raise vehicle to allow wheel removal.",
+          "tools": "",
+          "torque": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Hoist at Waist Height",
+      "steps": [
+        {
+          "check": 47,
+          "title": "Wheel Bearing Freeplay",
+          "description": "Check wheel bearing freeplay",
+          "detail": "Rock each wheel to check for bearing freeplay. Report any excessive movement.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 48,
+          "title": "N/S/F Wheel & Tyre",
+          "description": "Remove N/S/F wheel. Check tyre wear and report. Top up tyre pressure as required",
+          "detail": "Remove near-side front wheel. Inspect tyre tread depth and wear pattern. Check and adjust tyre pressure to specification.",
+          "tools": "41mm Socket/Impact Wrench",
+          "torque": ""
+        },
+        {
+          "check": 49,
+          "title": "N/S/F Mudflap & Arch",
+          "description": "Check N/S/F mudflap and wheel arch",
+          "detail": "Inspect near-side front mudflap security and wheel arch condition.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 50,
+          "title": "N/S/F Brakes",
+          "description": "Check N/S/F service brakes - record lining thickness remaining",
+          "detail": "Inspect near-side front brake linings. Measure and record lining thickness remaining with vernier calipers.",
+          "tools": "Vernier Calipers",
+          "torque": ""
+        },
+        {
+          "check": 51,
+          "title": "N/S/F Shock Absorber",
+          "description": "Inspect N/S/F shock absorber and bushes, tension mounts",
+          "detail": "Check that the near-side front shock absorber is not loose, leaking, and is free of play. Check bushes and mounts.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 52,
+          "title": "N/S/R Wheels & Tyres",
+          "description": "Remove N/S/R wheels. Check tyre wear and report. Top up tyre pressure as required",
+          "detail": "Remove near-side rear wheels. Inspect tyre tread depth and wear pattern. Check and adjust tyre pressure.",
+          "tools": "41mm Socket/Impact Wrench",
+          "torque": ""
+        },
+        {
+          "check": 53,
+          "title": "N/S/R Mudflaps",
+          "description": "Check N/S/R mudflaps",
+          "detail": "Inspect near-side rear mudflap security and condition.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 54,
+          "title": "N/S/R Brakes",
+          "description": "Check N/S/R service brakes - record lining thickness remaining",
+          "detail": "Inspect near-side rear brake linings. Measure and record lining thickness with vernier calipers.",
+          "tools": "Vernier Calipers",
+          "torque": ""
+        },
+        {
+          "check": 55,
+          "title": "N/S/R Shock Absorber",
+          "description": "Inspect N/S/R shock absorber and bushes, tension mounts",
+          "detail": "Check that the near-side rear shock absorber is not loose, leaking, and is free of play.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 56,
+          "title": "O/S/R Wheels & Tyres",
+          "description": "Remove O/S/R wheels. Check tyre wear and report. Top up tyre pressure as required",
+          "detail": "Remove off-side rear wheels. Inspect tyre tread depth and wear pattern. Check and adjust tyre pressure.",
+          "tools": "41mm Socket/Impact Wrench",
+          "torque": ""
+        },
+        {
+          "check": 57,
+          "title": "O/S/R Mudflaps",
+          "description": "Check O/S/R mudflaps",
+          "detail": "Inspect off-side rear mudflap security and condition.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 58,
+          "title": "O/S/R Brakes",
+          "description": "Check O/S/R service brakes - record lining thickness remaining",
+          "detail": "Inspect off-side rear brake linings. Measure and record lining thickness with vernier calipers.",
+          "tools": "Vernier Calipers",
+          "torque": ""
+        },
+        {
+          "check": 59,
+          "title": "O/S/R Shock Absorber",
+          "description": "Inspect O/S/R shock absorber and bushes, tension mounts",
+          "detail": "Check that the off-side rear shock absorber is not loose, leaking, and is free of play.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 60,
+          "title": "O/S/F Wheel & Tyre",
+          "description": "Remove O/S/F wheel. Check tyre wear and report. Top up tyre pressure as required",
+          "detail": "Remove off-side front wheel. Inspect tyre tread depth and wear pattern. Check and adjust tyre pressure.",
+          "tools": "41mm Socket/Impact Wrench",
+          "torque": ""
+        },
+        {
+          "check": 61,
+          "title": "O/S/F Mudflap & Arch",
+          "description": "Check O/S/F mudflap and wheel arch",
+          "detail": "Inspect off-side front mudflap security and wheel arch condition.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 62,
+          "title": "O/S/F Brakes",
+          "description": "Check O/S/F service brakes - record lining thickness remaining",
+          "detail": "Inspect off-side front brake linings. Measure and record lining thickness with vernier calipers.",
+          "tools": "Vernier Calipers",
+          "torque": ""
+        },
+        {
+          "check": 63,
+          "title": "O/S/F Shock Absorber",
+          "description": "Inspect O/S/F shock absorber and bushes, tension mounts",
+          "detail": "Check that the off-side front shock absorber is not loose, leaking, and is free of play.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 64,
+          "title": "Disc Caliper Rubbers",
+          "description": "Check rubber parts for disc calipers",
+          "detail": "Inspect rubber seals, boots, and hoses on all disc brake calipers for cracking or damage.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 65,
+          "title": "Hydraulic Fluid Leaks",
+          "description": "Check hydraulic fluid for leaks",
+          "detail": "Inspect all hydraulic lines, hoses, and fittings for fluid leaks.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 66,
+          "title": "Rotate Wheels",
+          "description": "Rotate wheels",
+          "detail": "Rotate wheels according to the prescribed pattern for even tyre wear.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 67,
+          "title": "Wheel Nut Retention",
+          "description": "Retention all wheel retaining nuts",
+          "detail": "Torque all wheel retaining nuts to specification. Use star pattern for even tightening.",
+          "tools": "41mm Socket/Impact Wrench",
+          "torque": "440-590 Nm"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Cab Tilted",
+      "steps": [
+        {
+          "check": 68,
+          "title": "Exhaust Manifolds",
+          "description": "Check exhaust manifolds for tension and leaks",
+          "detail": "Check that the exhaust manifold bolts are tight to specification. Check for exhaust gas leaks.",
+          "tools": "12mm Spanner",
+          "torque": "60 Nm"
+        },
+        {
+          "check": 69,
+          "title": "Heater & Radiator Hoses",
+          "description": "Inspect heater hoses and radiator hoses for condition and leaks",
+          "detail": "Inspect all heater and radiator hoses for cracking, swelling, or leaks. Check clamp tightness.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 70,
+          "title": "Refill Engine Oil",
+          "description": "Refill engine oil",
+          "detail": "Fill engine with correct grade and quantity of oil. Check level on dipstick.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 71,
+          "title": "Auto Trans Fluid",
+          "description": "Check automatic transmission fluid",
+          "detail": "Check automatic transmission fluid level and condition. Top up if required.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 72,
+          "title": "Inlet Manifold",
+          "description": "Check inlet manifold and ducting for tension and leaks",
+          "detail": "Check that inlet manifold bolts are tight. Inspect ducting connections for air leaks.",
+          "tools": "12mm Spanner",
+          "torque": "28.5 Nm"
+        },
+        {
+          "check": 73,
+          "title": "Radiator Cap",
+          "description": "Check radiator cap function",
+          "detail": "Check radiator cap seal and pressure release function. Replace if defective.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 74,
+          "title": "Radiator & Intercooler",
+          "description": "Inspect radiator and intercooler fins, clean as required",
+          "detail": "Inspect radiator and intercooler fins for blockage or damage. Clean with compressed air if required.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 75,
+          "title": "Drive Belts",
+          "description": "Inspect and if required adjust drive belts",
+          "detail": "Check that V-belt tension is within the specified range. Inspect for cracking or wear. Adjust if required.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 76,
+          "title": "Water Pump & Fan Hub",
+          "description": "Inspect water pump and fan hub for excess wear/movement",
+          "detail": "Check water pump and fan hub for play, leaks, or unusual noise. Check fan clutch is not loose.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 77,
+          "title": "Fan Blades & Shroud",
+          "description": "Inspect fan blades and shroud for damage",
+          "detail": "Inspect cooling fan blades for cracks or damage. Check shroud is secure and not rubbing.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 78,
+          "title": "Engine Oil Level",
+          "description": "Check engine oil level after running engine",
+          "detail": "Run engine briefly, then check oil level on dipstick. Top up to correct level if needed.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 79,
+          "title": "Trans Linkage Cables",
+          "description": "Check transmission linkage cables",
+          "detail": "Check transmission linkage cables for correct operation and security.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 80,
+          "title": "Cab Mounts",
+          "description": "Inspect cab mounts",
+          "detail": "Check cab mounting bolts are secure. Inspect rubber mounts for deterioration.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 81,
+          "title": "Cab Lock",
+          "description": "Inspect cab lock",
+          "detail": "Check the installation condition and operation of the cab lock mechanism.",
+          "tools": "",
+          "torque": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Final Inspection",
+      "steps": [
+        {
+          "check": 82,
+          "title": "Systems Check",
+          "description": "Ensure satisfactory operation of all systems",
+          "detail": "Final check that all systems are operating correctly. Verify all work has been completed.",
+          "tools": "",
+          "torque": ""
+        },
+        {
+          "check": 83,
+          "title": "Clean Up",
+          "description": "Remove all grease marks, wash engine and transmission",
+          "detail": "Clean all grease marks from bodywork. Wash engine and transmission area. Present vehicle for final review.",
+          "tools": "",
+          "torque": ""
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Replace spin on fuel filter every 300,000 kms or 120 months as needed after step 68",
+    "N/S = Near Side (passenger side, left in RHD), O/S = Off Side (driver side, right in RHD)",
+    "F = Front, R = Rear"
+  ]
+}

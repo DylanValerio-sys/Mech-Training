@@ -61,6 +61,10 @@ class AudioGuidance:
         for det in detections:
             self.announce(det["class_name"])
 
+    def announce_step(self, text):
+        """Announce a service procedure step (bypasses cooldown)."""
+        self._queue.put(text)
+
     def shutdown(self):
         """Stop the audio thread."""
         self._running = False

@@ -115,3 +115,40 @@ class KnowledgeBase:
         for fault in faults[:max_tips]:
             tips.append(f"Check: {fault['name']} — {fault['visual']}")
         return tips
+
+    def get_full_knowledge_text(self):
+        """Get the entire knowledge base as formatted text for an AI system prompt."""
+        lines = []
+        seen = set()
+        for key, info in self._data.items():
+            # Only process each part once (we have multiple case variants)
+            name = info.get("name", key)
+            if name in seen:
+                continue
+            seen.add(name)
+
+            category = info.get("category", "unknown").upper()
+            lines.append(f"PART: {name} [{category}]")
+            if info.get("description"):
+                lines.append(f"  Description: {info['description']}")
+            if info.get("location"):
+                lines.append(f"  Location: {info['location']}")
+            faults = info.get("faults", [])
+            if faults:
+                lines.append("  Common Faults:")
+                for f in faults:
+                    sev = f.get("severity", "medium").upper()
+                    lines.append(f"    - {f['name']} ({sev}): {f['visual']}")
+                    lines.append(f"      Action: {f['action']}")
+            checks = info.get("service_checks", [])
+            if checks:
+                lines.append(f"  Service Checks: {', '.join(f'#{c}' for c in checks)}")
+            if info.get("safety"):
+                lines.append(f"  Safety: {info['safety']}")
+            if info.get("tools"):
+                lines.append(f"  Tools: {', '.join(info['tools'])}")
+            if info.get("difficulty"):
+                lines.append(f"  Difficulty: {info['difficulty']}")
+            lines.append("")
+
+        return "\n".join(lines)

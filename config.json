@@ -6,5 +6,7 @@
     "model_path": "yolov8n.pt",
     "window_name": "Mech Training AI",
     "show_fps": true,
-    "show_confidence": true
+    "show_confidence": true,
+    "muddy_voice": "en-AU-WilliamNeural",
+    "muddy_model": "claude-3-5-haiku-latest"
 }

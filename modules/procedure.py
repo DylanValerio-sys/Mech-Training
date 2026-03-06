@@ -96,3 +96,39 @@ class ProcedureGuide:
     def get_detail_text(self):
         """Get the detailed work outline for the current step."""
         return self.current_step.get("detail", "")
+
+    def get_current_step_context(self):
+        """Get a short context string about the current position."""
+        step = self.current_step
+        return (
+            f"Currently on Step {step['check']}/{self.total_steps}: "
+            f"{step['title']} (Section {step['section_id']}: {step['section_name']})"
+        )
+
+    def get_full_procedure_text(self):
+        """Get the entire procedure as formatted text for an AI system prompt."""
+        lines = []
+        lines.append(f"Vehicle: {self.vehicle}")
+        lines.append(f"Service Type: {self.service_type}")
+        lines.append(f"Total Checks: {self.total_steps}")
+        lines.append("")
+
+        for section in self.sections:
+            lines.append(f"SECTION {section['id']}: {section['name'].upper()}")
+            for step in section["steps"]:
+                lines.append(f"  Check {step['check']}: {step['title']}")
+                lines.append(f"    Description: {step['description']}")
+                if step.get("detail"):
+                    lines.append(f"    Detail: {step['detail']}")
+                if step.get("tools"):
+                    lines.append(f"    Tools: {step['tools']}")
+                if step.get("torque"):
+                    lines.append(f"    Torque: {step['torque']}")
+            lines.append("")
+
+        if self.notes:
+            lines.append("NOTES:")
+            for note in self.notes:
+                lines.append(f"  - {note}")
+
+        return "\n".join(lines)

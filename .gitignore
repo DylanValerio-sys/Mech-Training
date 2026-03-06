@@ -25,3 +25,6 @@ datasets/
 
 # Training runs (large checkpoint files)
 training/
+
+# API keys and secrets
+.env

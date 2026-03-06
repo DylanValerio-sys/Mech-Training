@@ -1,0 +1,822 @@
+{
+  "_info": "Knowledge base mapping YOLO-detected engine parts to faults, service checks, and guidance",
+  "_model_classes": "50 classes from fine-tuned YOLOv8 engine parts model",
+
+  "AIR COMPRESSOR": {
+    "name": "Air Compressor",
+    "category": "engine",
+    "description": "Generates compressed air for pneumatic braking systems and accessories",
+    "location": "Mounted to the engine block, driven by gear or belt",
+    "faults": [
+      {"name": "Oil Leak", "visual": "Oil residue or wet spots around compressor housing", "severity": "medium", "action": "Check seals and gaskets, replace if leaking"},
+      {"name": "Excessive Noise", "visual": "Rattling or knocking when running", "severity": "high", "action": "Check mounting bolts and internal bearings"},
+      {"name": "Low Air Pressure", "visual": "Air pressure gauge reads below normal", "severity": "high", "action": "Check for air leaks in lines, inspect compressor valves"}
+    ],
+    "service_checks": [7],
+    "safety": "Ensure engine is off before inspecting. Compressed air system is under pressure.",
+    "tools": ["Socket set", "Wrench set"],
+    "difficulty": "advanced"
+  },
+
+  "ALTERNATOR": {
+    "name": "Alternator",
+    "category": "electrical",
+    "description": "Converts mechanical energy to electrical energy to charge the battery and power electrical systems while the engine runs",
+    "location": "Front of engine, driven by the serpentine/drive belt",
+    "faults": [
+      {"name": "Belt Wear", "visual": "Cracked, glazed, or fraying belt surface", "severity": "medium", "action": "Inspect belt tension and condition, replace if worn"},
+      {"name": "Bearing Noise", "visual": "Whining or grinding noise from alternator", "severity": "high", "action": "Replace alternator bearings or alternator unit"},
+      {"name": "Charging Failure", "visual": "Battery warning light on dashboard", "severity": "high", "action": "Test output voltage (should be 13.5-14.5V), check wiring connections"},
+      {"name": "Loose Mount", "visual": "Alternator wobbles or vibrates excessively", "severity": "medium", "action": "Tighten mounting bolts to specification"}
+    ],
+    "service_checks": [75],
+    "safety": "Disconnect battery before removal. Belt can cause injury if engine is running.",
+    "tools": ["Socket set", "Wrench set", "Belt tensioner tool", "Multimeter"],
+    "difficulty": "intermediate"
+  },
+
+  "BATTERY": {
+    "name": "Battery",
+    "category": "electrical",
+    "description": "Stores electrical energy to start the engine and power accessories when the engine is off",
+    "location": "Engine bay, usually mounted in a battery box on one side",
+    "faults": [
+      {"name": "Terminal Corrosion", "visual": "White, green, or blue powder buildup on terminals", "severity": "medium", "action": "Clean terminals with wire brush, apply terminal grease"},
+      {"name": "Swollen Case", "visual": "Battery case appears bloated or expanded", "severity": "high", "action": "Replace battery immediately - indicates internal failure"},
+      {"name": "Low Electrolyte", "visual": "Fluid level below plates visible through casing", "severity": "medium", "action": "Top up with distilled water to correct level"},
+      {"name": "Loose Hold-Down", "visual": "Battery moves or shifts in its tray", "severity": "medium", "action": "Secure battery clamp and check tray condition"},
+      {"name": "Cable Damage", "visual": "Frayed, cracked, or corroded battery cables", "severity": "high", "action": "Replace damaged cables, ensure tight connections"}
+    ],
+    "service_checks": [23, 24, 25, 26],
+    "safety": "Disconnect negative terminal first. Avoid sparks near battery (hydrogen gas risk). Wear eye protection.",
+    "tools": ["Wrench (10mm)", "Wire brush", "Battery terminal cleaner", "Hydrometer", "Load tester"],
+    "difficulty": "beginner"
+  },
+
+  "BRAKE CALIPER": {
+    "name": "Brake Caliper",
+    "category": "brake",
+    "description": "Hydraulic clamp that squeezes brake pads against the rotor to slow the vehicle",
+    "location": "Behind each wheel, mounted to the steering knuckle or axle",
+    "faults": [
+      {"name": "Fluid Leak", "visual": "Wet brake fluid around caliper body or bleed nipple", "severity": "high", "action": "Replace caliper seals or caliper unit. Do NOT drive with brake fluid leaks."},
+      {"name": "Sticking Piston", "visual": "Uneven pad wear, vehicle pulls to one side under braking", "severity": "high", "action": "Rebuild or replace caliper, clean slide pins"},
+      {"name": "Torn Dust Boot", "visual": "Ripped or missing rubber boot on caliper piston", "severity": "medium", "action": "Replace dust boot to prevent contaminant entry"},
+      {"name": "Seized Slide Pins", "visual": "Caliper does not float freely, uneven pad wear", "severity": "medium", "action": "Remove, clean, and re-grease slide pins"}
+    ],
+    "service_checks": [50, 54, 58, 62, 64, 65],
+    "safety": "Support vehicle on jack stands. Never rely on a jack alone. Brake dust may contain harmful particles.",
+    "tools": ["Socket set", "C-clamp or brake piston tool", "Brake cleaner", "Torque wrench"],
+    "difficulty": "intermediate"
+  },
+
+  "BRAKE PAD": {
+    "name": "Brake Pad",
+    "category": "brake",
+    "description": "Friction material that presses against the brake rotor to create stopping force",
+    "location": "Inside the brake caliper, one pad on each side of the rotor",
+    "faults": [
+      {"name": "Worn Below Minimum", "visual": "Pad material less than 3mm thick", "severity": "high", "action": "Replace brake pads immediately. Measure with vernier calipers."},
+      {"name": "Uneven Wear", "visual": "One pad significantly thinner than the other", "severity": "medium", "action": "Check caliper slide pins and piston, may need caliper service"},
+      {"name": "Glazed Surface", "visual": "Smooth, shiny surface on pad friction material", "severity": "medium", "action": "Replace pads, inspect rotor surface"},
+      {"name": "Cracking", "visual": "Visible cracks in pad material", "severity": "high", "action": "Replace pads immediately"}
+    ],
+    "service_checks": [50, 54, 58, 62],
+    "safety": "Use vernier calipers to measure lining thickness. Record and report measurements.",
+    "tools": ["Vernier calipers", "Brake cleaner", "C-clamp"],
+    "difficulty": "intermediate"
+  },
+
+  "BRAKE ROTOR": {
+    "name": "Brake Rotor",
+    "category": "brake",
+    "description": "Metal disc that rotates with the wheel; brake pads clamp against it to create friction for stopping",
+    "location": "Behind each wheel, mounted to the wheel hub",
+    "faults": [
+      {"name": "Scoring", "visual": "Deep grooves or scratches on rotor surface", "severity": "medium", "action": "Measure depth of scoring. Machine or replace rotor if beyond specification."},
+      {"name": "Warping", "visual": "Pulsation felt through brake pedal during braking", "severity": "medium", "action": "Measure rotor runout with dial indicator. Machine or replace."},
+      {"name": "Rust Buildup", "visual": "Heavy rust on rotor surface or edges", "severity": "low", "action": "Light surface rust is normal. Heavy buildup indicates lack of use."},
+      {"name": "Below Minimum Thickness", "visual": "Rotor appears thin, check with micrometer", "severity": "high", "action": "Replace rotor. Minimum thickness is stamped on rotor edge."}
+    ],
+    "service_checks": [50, 54, 58, 62],
+    "safety": "Rotor edges can be sharp. Wear gloves when handling.",
+    "tools": ["Micrometer", "Dial indicator", "Socket set", "Lug wrench"],
+    "difficulty": "intermediate"
+  },
+
+  "CAMSHAFT": {
+    "name": "Camshaft",
+    "category": "engine",
+    "description": "Rotating shaft with lobes that open and close the engine valves in the correct sequence and timing",
+    "location": "Inside the cylinder head (OHC) or engine block (pushrod engines)",
+    "faults": [
+      {"name": "Lobe Wear", "visual": "Flat spots on cam lobes, loss of engine power", "severity": "high", "action": "Requires engine disassembly. Replace camshaft and lifters."},
+      {"name": "Timing Issue", "visual": "Engine runs rough, misfires, check engine light", "severity": "high", "action": "Check timing chain/belt tension and alignment"},
+      {"name": "Bearing Wear", "visual": "Ticking or tapping noise from top of engine", "severity": "high", "action": "Check oil pressure, inspect cam bearings"}
+    ],
+    "service_checks": [],
+    "safety": "Major engine component. Requires professional service for internal repairs.",
+    "tools": ["Full mechanic tool set", "Torque wrench", "Timing tools"],
+    "difficulty": "advanced"
+  },
+
+  "CARBERATOR": {
+    "name": "Carburetor",
+    "category": "fuel",
+    "description": "Mixes air and fuel in the correct ratio for combustion (older engines, pre-fuel injection)",
+    "location": "Top of engine, mounted on the intake manifold",
+    "faults": [
+      {"name": "Fuel Leak", "visual": "Fuel dripping or wet spots around carburetor body", "severity": "high", "action": "Check float level, needle valve, and gaskets. Fire hazard."},
+      {"name": "Rich Running", "visual": "Black exhaust smoke, fuel smell, fouled spark plugs", "severity": "medium", "action": "Adjust mixture screws, check choke operation"},
+      {"name": "Lean Running", "visual": "Engine hesitates, backfires, overheats", "severity": "medium", "action": "Check for vacuum leaks, adjust mixture, clean jets"},
+      {"name": "Sticking Choke", "visual": "Hard cold start or runs rough when cold", "severity": "medium", "action": "Clean and lubricate choke mechanism"}
+    ],
+    "service_checks": [],
+    "safety": "Fuel is highly flammable. No open flames. Keep fire extinguisher nearby.",
+    "tools": ["Screwdriver set", "Carburetor cleaner", "Vacuum gauge"],
+    "difficulty": "intermediate"
+  },
+
+  "CLUTCH PLATE": {
+    "name": "Clutch Plate",
+    "category": "drivetrain",
+    "description": "Friction disc that engages and disengages power transfer between engine and transmission",
+    "location": "Between engine flywheel and transmission input shaft",
+    "faults": [
+      {"name": "Worn Friction Material", "visual": "Clutch slips under load, burning smell", "severity": "high", "action": "Replace clutch kit (disc, pressure plate, release bearing)"},
+      {"name": "Oil Contamination", "visual": "Clutch grabs or chatters, oil on friction surface", "severity": "high", "action": "Find and fix oil leak source, replace clutch"},
+      {"name": "Warped Disc", "visual": "Clutch judder on engagement", "severity": "medium", "action": "Replace clutch disc"}
+    ],
+    "service_checks": [39],
+    "safety": "Requires transmission removal. Heavy components - use transmission jack.",
+    "tools": ["Transmission jack", "Clutch alignment tool", "Socket set", "Torque wrench"],
+    "difficulty": "advanced"
+  },
+
+  "COIL SPRING": {
+    "name": "Coil Spring",
+    "category": "suspension",
+    "description": "Helical metal spring that absorbs road impacts and supports vehicle weight",
+    "location": "Between the frame/body and the axle or suspension arm at each wheel",
+    "faults": [
+      {"name": "Broken Coil", "visual": "Vehicle sits low on one corner, visible gap in spring", "severity": "high", "action": "Replace spring immediately. Broken springs can puncture tyres."},
+      {"name": "Sagging", "visual": "Vehicle rides lower than normal, uneven ride height", "severity": "medium", "action": "Replace spring pair (both sides of same axle)"},
+      {"name": "Corrosion", "visual": "Heavy rust or pitting on spring surface", "severity": "medium", "action": "Inspect for weakening, replace if significantly corroded"}
+    ],
+    "service_checks": [51, 55, 59, 63],
+    "safety": "Springs are under extreme tension. Use proper spring compressor tool. Never use makeshift tools.",
+    "tools": ["Spring compressor", "Socket set", "Jack stands"],
+    "difficulty": "advanced"
+  },
+
+  "CRANKSHAFT": {
+    "name": "Crankshaft",
+    "category": "engine",
+    "description": "Converts the reciprocating motion of pistons into rotational motion to drive the transmission",
+    "location": "Bottom of the engine block, inside the crankcase",
+    "faults": [
+      {"name": "Bearing Knock", "visual": "Deep knocking noise from lower engine, especially under load", "severity": "high", "action": "Engine rebuild required. Check oil pressure immediately."},
+      {"name": "Oil Seal Leak", "visual": "Oil leak at front or rear of crankshaft", "severity": "medium", "action": "Replace front or rear crankshaft seal"},
+      {"name": "Harmonic Balancer Failure", "visual": "Wobbling pulley at front of crankshaft, vibration", "severity": "high", "action": "Replace harmonic balancer/damper"}
+    ],
+    "service_checks": [],
+    "safety": "Major internal engine component. Requires professional diagnosis and repair.",
+    "tools": ["Full mechanic tool set", "Engine hoist", "Torque wrench", "Plastigage"],
+    "difficulty": "advanced"
+  },
+
+  "CYLINDER HEAD": {
+    "name": "Cylinder Head",
+    "category": "engine",
+    "description": "Caps the top of the cylinders, contains valves, spark plugs, and combustion chambers",
+    "location": "Top of engine block",
+    "faults": [
+      {"name": "Head Gasket Failure", "visual": "White exhaust smoke, coolant loss, milky oil", "severity": "high", "action": "Replace head gasket. Check head for warping before reassembly."},
+      {"name": "Cracked Head", "visual": "Coolant in oil or oil in coolant, overheating", "severity": "high", "action": "Pressure test the head. Replace if cracked."},
+      {"name": "Warped Surface", "visual": "Persistent coolant leak after gasket replacement", "severity": "high", "action": "Machine the head surface flat or replace"}
+    ],
+    "service_checks": [68, 72],
+    "safety": "Allow engine to cool completely before any work. Coolant system is pressurized when hot.",
+    "tools": ["Torque wrench", "Straight edge", "Feeler gauges", "Socket set"],
+    "difficulty": "advanced"
+  },
+
+  "DISTRIBUTOR": {
+    "name": "Distributor",
+    "category": "electrical",
+    "description": "Routes high-voltage spark to each spark plug in the correct firing order (older ignition systems)",
+    "location": "Top of engine, driven by the camshaft",
+    "faults": [
+      {"name": "Cap Cracks", "visual": "Cracks, carbon tracking, or corrosion on distributor cap", "severity": "medium", "action": "Replace distributor cap and rotor"},
+      {"name": "Worn Rotor", "visual": "Pitting or burn marks on rotor contact tip", "severity": "medium", "action": "Replace rotor with distributor cap"},
+      {"name": "Timing Drift", "visual": "Engine runs rough, poor fuel economy", "severity": "medium", "action": "Check and adjust ignition timing with timing light"}
+    ],
+    "service_checks": [],
+    "safety": "High voltage system. Do not touch ignition wires while engine is running.",
+    "tools": ["Screwdriver", "Timing light", "Multimeter"],
+    "difficulty": "intermediate"
+  },
+
+  "ENGINE BLOCK": {
+    "name": "Engine Block",
+    "category": "engine",
+    "description": "Main structural casting of the engine containing cylinders, coolant passages, and oil galleries",
+    "location": "Centre of engine bay",
+    "faults": [
+      {"name": "Oil Leak", "visual": "Oil seepage on block surface, drips underneath", "severity": "medium", "action": "Identify leak source: gaskets, seals, or crack. Clean and monitor."},
+      {"name": "Coolant Leak", "visual": "Green/orange fluid on block, sweet smell", "severity": "high", "action": "Pressure test cooling system, check freeze plugs and gaskets"},
+      {"name": "Cracked Block", "visual": "Coolant mixing with oil (milky dipstick), external crack visible", "severity": "high", "action": "Engine replacement typically required"},
+      {"name": "Loose Mounts", "visual": "Excessive engine movement, vibration at idle", "severity": "medium", "action": "Check and torque engine mounting bolts"}
+    ],
+    "service_checks": [33, 78],
+    "safety": "Major component. Hot surfaces after running. Allow cooling before inspection.",
+    "tools": ["Socket set", "Torque wrench", "Pressure tester"],
+    "difficulty": "advanced"
+  },
+
+  "ENGINE VALVE": {
+    "name": "Engine Valve",
+    "category": "engine",
+    "description": "Opens and closes to control air/fuel intake and exhaust gas exit from each cylinder",
+    "location": "Inside the cylinder head, one intake and one exhaust per cylinder minimum",
+    "faults": [
+      {"name": "Burnt Valve", "visual": "Persistent misfire on one cylinder, low compression", "severity": "high", "action": "Requires cylinder head removal and valve replacement"},
+      {"name": "Valve Seat Recession", "visual": "Loss of power, rough idle", "severity": "high", "action": "Machine valve seats or replace cylinder head"},
+      {"name": "Worn Stem Seals", "visual": "Blue smoke on startup, oil consumption", "severity": "medium", "action": "Replace valve stem seals"}
+    ],
+    "service_checks": [],
+    "safety": "Internal engine component. Requires head removal for service.",
+    "tools": ["Valve spring compressor", "Torque wrench", "Feeler gauges"],
+    "difficulty": "advanced"
+  },
+
+  "FUEL INJECTOR": {
+    "name": "Fuel Injector",
+    "category": "fuel",
+    "description": "Electronically controlled nozzle that sprays precise amounts of fuel into each cylinder",
+    "location": "Mounted in the intake manifold or directly in the cylinder head",
+    "faults": [
+      {"name": "Clogged Nozzle", "visual": "Rough idle, misfire, poor fuel economy", "severity": "medium", "action": "Use fuel injector cleaner or have professionally cleaned"},
+      {"name": "Fuel Leak", "visual": "Fuel smell, wet spots around injector O-rings", "severity": "high", "action": "Replace injector O-rings or injector. Fire hazard."},
+      {"name": "Electrical Fault", "visual": "Injector not clicking, check engine light", "severity": "medium", "action": "Check wiring connector and injector resistance"}
+    ],
+    "service_checks": [22],
+    "safety": "Fuel under pressure. Depressurize fuel system before removal. No open flames.",
+    "tools": ["Fuel pressure gauge", "Injector puller", "O-ring kit", "Multimeter"],
+    "difficulty": "intermediate"
+  },
+
+  "FUSE BOX": {
+    "name": "Fuse Box",
+    "category": "electrical",
+    "description": "Central distribution panel containing fuses that protect electrical circuits from overload",
+    "location": "Engine bay (main fuse box) and under dashboard (cabin fuse box)",
+    "faults": [
+      {"name": "Blown Fuse", "visual": "Broken fuse element visible through clear casing", "severity": "low", "action": "Replace with same amperage fuse. Investigate cause if it blows repeatedly."},
+      {"name": "Corrosion", "visual": "Green/white deposits on fuse contacts", "severity": "medium", "action": "Clean contacts with electrical cleaner, apply dielectric grease"},
+      {"name": "Melted Connector", "visual": "Discolored or melted plastic around fuse slot", "severity": "high", "action": "Indicates short circuit. Professional electrical diagnosis required."}
+    ],
+    "service_checks": [],
+    "safety": "Disconnect battery before working on electrical systems.",
+    "tools": ["Fuse puller", "Multimeter", "Electrical cleaner"],
+    "difficulty": "beginner"
+  },
+
+  "GAS CAP": {
+    "name": "Fuel Cap",
+    "category": "fuel",
+    "description": "Seals the fuel tank filler neck, maintains fuel system pressure and prevents evaporative emissions",
+    "location": "On the side of the vehicle at the fuel filler neck",
+    "faults": [
+      {"name": "Damaged Seal", "visual": "Cracked or missing rubber gasket on cap", "severity": "low", "action": "Replace fuel cap"},
+      {"name": "Check Engine Light", "visual": "Evaporative emissions code triggered", "severity": "low", "action": "Ensure cap clicks tight. Replace if seal is worn."},
+      {"name": "Missing Cap", "visual": "Fuel filler neck is open/uncovered", "severity": "medium", "action": "Replace fuel cap to prevent contamination and emissions"}
+    ],
+    "service_checks": [],
+    "safety": "No special precautions. Keep away from open flames.",
+    "tools": [],
+    "difficulty": "beginner"
+  },
+
+  "HEADLIGHTS": {
+    "name": "Headlights",
+    "category": "electrical",
+    "description": "Forward-facing vehicle lights for illumination and visibility",
+    "location": "Front of vehicle, mounted in the front body panel",
+    "faults": [
+      {"name": "Burnt Bulb", "visual": "One or both headlights not illuminating", "severity": "medium", "action": "Replace headlight bulb. Check for matching wattage."},
+      {"name": "Cloudy Lens", "visual": "Yellowed, hazy, or foggy headlight lens", "severity": "low", "action": "Polish with headlight restoration kit or replace lens"},
+      {"name": "Misaligned Beam", "visual": "Light pattern too high, too low, or off-center", "severity": "medium", "action": "Adjust headlight aim using adjustment screws"},
+      {"name": "Cracked Lens", "visual": "Visible crack or chip in headlight cover", "severity": "medium", "action": "Replace headlight assembly to prevent moisture ingress"}
+    ],
+    "service_checks": [15],
+    "safety": "Some bulbs are halogen/HID - do not touch glass with bare fingers (oil causes hotspots).",
+    "tools": ["Screwdriver", "Replacement bulbs"],
+    "difficulty": "beginner"
+  },
+
+  "IDLER ARM": {
+    "name": "Idler Arm",
+    "category": "suspension",
+    "description": "Supports the steering linkage on the passenger side, mirroring the pitman arm on the driver side",
+    "location": "Passenger side of the frame, connecting the centre link to the frame",
+    "faults": [
+      {"name": "Excessive Play", "visual": "Looseness when rocking the steering, wandering on road", "severity": "high", "action": "Replace idler arm. Check all steering linkage while servicing."},
+      {"name": "Worn Bushings", "visual": "Clunking noise over bumps, loose steering feel", "severity": "medium", "action": "Replace idler arm assembly"},
+      {"name": "Grease Loss", "visual": "Dry or cracked dust boot, no grease visible", "severity": "medium", "action": "Lubricate or replace if boot is torn"}
+    ],
+    "service_checks": [29],
+    "safety": "Steering component - failure can cause loss of vehicle control. Inspect thoroughly.",
+    "tools": ["Grease gun", "Pickle fork", "Socket set", "Torque wrench"],
+    "difficulty": "intermediate"
+  },
+
+  "IGNITION COIL": {
+    "name": "Ignition Coil",
+    "category": "electrical",
+    "description": "Transforms battery voltage (12V) to the high voltage needed to fire spark plugs (20,000-40,000V)",
+    "location": "Top of engine, one per cylinder (coil-on-plug) or single unit with wires",
+    "faults": [
+      {"name": "Coil Failure", "visual": "Engine misfire, rough idle, check engine light", "severity": "high", "action": "Test coil resistance with multimeter. Replace if out of specification."},
+      {"name": "Cracked Housing", "visual": "Visible crack in coil body, arcing in dark", "severity": "high", "action": "Replace ignition coil immediately"},
+      {"name": "Connector Corrosion", "visual": "Green deposits on electrical connector", "severity": "medium", "action": "Clean connector, apply dielectric grease"}
+    ],
+    "service_checks": [],
+    "safety": "High voltage component. Do not touch while engine is running.",
+    "tools": ["Multimeter", "Spark tester", "Socket set"],
+    "difficulty": "intermediate"
+  },
+
+  "INSTRUMENT CLUSTER": {
+    "name": "Instrument Cluster",
+    "category": "electrical",
+    "description": "Dashboard panel displaying vehicle speed, RPM, fuel level, temperature, and warning indicators",
+    "location": "Behind the steering wheel on the dashboard",
+    "faults": [
+      {"name": "Dead Gauges", "visual": "One or more gauges not responding", "severity": "medium", "action": "Check fuses, wiring connectors, and sending units"},
+      {"name": "Warning Lights", "visual": "Warning lights illuminated on dashboard", "severity": "varies", "action": "Diagnose with DXII scan tool, address fault codes"},
+      {"name": "Backlight Failure", "visual": "Cluster not illuminated at night", "severity": "low", "action": "Replace bulbs in instrument cluster"}
+    ],
+    "service_checks": [5, 8],
+    "safety": "Disconnect battery before removing instrument cluster.",
+    "tools": ["DXII diagnostic tool", "Screwdriver set"],
+    "difficulty": "intermediate"
+  },
+
+  "LEAF SPRING": {
+    "name": "Leaf Spring",
+    "category": "suspension",
+    "description": "Layered steel spring that supports vehicle weight and absorbs road impacts, common on truck axles",
+    "location": "Between the frame and axle, running lengthwise under the vehicle",
+    "faults": [
+      {"name": "Broken Leaf", "visual": "Visible crack or separation in spring leaf", "severity": "high", "action": "Replace leaf spring assembly. Vehicle may sit unevenly."},
+      {"name": "Sagging", "visual": "Vehicle rides lower on one side, uneven load capacity", "severity": "medium", "action": "Replace leaf spring pack"},
+      {"name": "Loose U-Bolts", "visual": "Spring shifting on axle, clunking noise", "severity": "high", "action": "Torque U-bolts to specification (195 Nm)"},
+      {"name": "Worn Bushings", "visual": "Squeaking, movement at spring eyes", "severity": "medium", "action": "Replace spring eye bushings"}
+    ],
+    "service_checks": [32, 44, 45],
+    "safety": "Springs are under load. Use proper support when servicing.",
+    "tools": ["24mm/27mm Socket", "Torque wrench", "Grease gun"],
+    "difficulty": "intermediate"
+  },
+
+  "LOWER CONTROL ARM": {
+    "name": "Lower Control Arm",
+    "category": "suspension",
+    "description": "Connects the wheel hub/knuckle to the vehicle frame, allowing controlled vertical wheel movement",
+    "location": "Lower front suspension, between the frame and steering knuckle",
+    "faults": [
+      {"name": "Worn Ball Joint", "visual": "Clunking over bumps, play in steering", "severity": "high", "action": "Replace ball joint or control arm assembly. Safety critical."},
+      {"name": "Torn Bushing", "visual": "Cracked or separated rubber bushing", "severity": "medium", "action": "Replace control arm bushings or full arm"},
+      {"name": "Bent Arm", "visual": "Vehicle pulls to one side, uneven tyre wear", "severity": "high", "action": "Replace control arm. Check alignment after replacement."}
+    ],
+    "service_checks": [51, 55, 59, 63],
+    "safety": "Suspension component under load. Support vehicle properly. Ball joint failure can cause wheel separation.",
+    "tools": ["Ball joint press", "Socket set", "Torque wrench"],
+    "difficulty": "intermediate"
+  },
+
+  "MUFFLER": {
+    "name": "Muffler",
+    "category": "exhaust",
+    "description": "Reduces engine exhaust noise using internal baffles and chambers",
+    "location": "Underneath the vehicle, part of the exhaust system between catalytic converter and tailpipe",
+    "faults": [
+      {"name": "Rust Through", "visual": "Holes or flaking rust on muffler body", "severity": "medium", "action": "Replace muffler. Check exhaust hangers."},
+      {"name": "Exhaust Leak", "visual": "Loud exhaust noise, soot marks at joints", "severity": "medium", "action": "Repair or replace leaking section, check clamps"},
+      {"name": "Rattling", "visual": "Internal baffles loose, rattling noise at idle", "severity": "low", "action": "Replace muffler"},
+      {"name": "Loose Hangers", "visual": "Muffler hanging low or contacting other parts", "severity": "medium", "action": "Replace exhaust hangers/rubber mounts"}
+    ],
+    "service_checks": [37],
+    "safety": "Exhaust system is extremely hot after running. Allow full cool-down before touching.",
+    "tools": ["Socket set", "Penetrating oil", "Exhaust clamps"],
+    "difficulty": "intermediate"
+  },
+
+  "OIL FILTER": {
+    "name": "Oil Filter",
+    "category": "fuel",
+    "description": "Filters contaminants from engine oil to protect internal engine components from wear",
+    "location": "Side or bottom of engine block, accessible from underneath",
+    "faults": [
+      {"name": "Leaking Gasket", "visual": "Oil drip or seepage around filter base", "severity": "medium", "action": "Ensure old gasket was removed. Reinstall with new gasket lightly oiled."},
+      {"name": "Clogged Filter", "visual": "Low oil pressure, oil pressure warning light", "severity": "high", "action": "Replace oil filter immediately"},
+      {"name": "Over-Tightened", "visual": "Crushed gasket, difficult to remove", "severity": "medium", "action": "Hand tighten plus 3/4 turn only. Use filter strap wrench for removal."}
+    ],
+    "service_checks": [31],
+    "safety": "Hot oil can cause burns. Let engine cool before changing. Use drain pan.",
+    "tools": ["110mm Filter strap wrench", "Oil drain pan", "Funnel", "Rags"],
+    "difficulty": "beginner"
+  },
+
+  "OIL PAN": {
+    "name": "Oil Pan",
+    "category": "engine",
+    "description": "Reservoir at the bottom of the engine that collects and stores engine oil",
+    "location": "Very bottom of the engine block",
+    "faults": [
+      {"name": "Drain Plug Leak", "visual": "Oil drip from drain plug area", "severity": "medium", "action": "Check drain plug torque (41 Nm). Replace crush washer."},
+      {"name": "Gasket Leak", "visual": "Oil seepage along pan-to-block mating surface", "severity": "medium", "action": "Replace oil pan gasket"},
+      {"name": "Impact Damage", "visual": "Dent or crack from road debris impact", "severity": "high", "action": "Replace oil pan if cracked. Monitor oil level closely."},
+      {"name": "Rust", "visual": "Corrosion on oil pan surface", "severity": "low", "action": "Monitor for perforation. Clean and protect with paint."}
+    ],
+    "service_checks": [30],
+    "safety": "Hot oil can burn. Allow engine to cool. Use proper drain pan and dispose of oil responsibly.",
+    "tools": ["24mm Spanner", "Scraper", "Oil drain pan", "Torque wrench"],
+    "difficulty": "beginner"
+  },
+
+  "OIL PRESSURE SENSOR": {
+    "name": "Oil Pressure Sensor",
+    "category": "engine",
+    "description": "Monitors engine oil pressure and sends signal to the dashboard gauge or warning light",
+    "location": "On the engine block, usually near the oil filter",
+    "faults": [
+      {"name": "False Reading", "visual": "Oil pressure gauge reads zero or erratic, but engine sounds normal", "severity": "medium", "action": "Replace sensor. Verify with manual gauge if in doubt."},
+      {"name": "Oil Leak", "visual": "Oil seepage around sensor threads", "severity": "low", "action": "Apply thread sealant and retighten, or replace sensor"},
+      {"name": "Wiring Issue", "visual": "Intermittent gauge reading, loose connector", "severity": "low", "action": "Check and clean electrical connector"}
+    ],
+    "service_checks": [78],
+    "safety": "If oil pressure warning light comes on while driving, stop engine immediately.",
+    "tools": ["Socket or wrench", "Thread sealant", "Multimeter"],
+    "difficulty": "beginner"
+  },
+
+  "OVERFLOW TANK": {
+    "name": "Coolant Overflow Tank",
+    "category": "cooling",
+    "description": "Reservoir that stores excess coolant as the engine heats up and returns it as it cools down",
+    "location": "Engine bay, usually on one side near the radiator, translucent plastic tank",
+    "faults": [
+      {"name": "Low Level", "visual": "Coolant below minimum mark on tank", "severity": "medium", "action": "Top up coolant to correct level. Check for leaks if level drops repeatedly."},
+      {"name": "Cracked Tank", "visual": "Visible crack or coolant stain on tank body", "severity": "medium", "action": "Replace overflow tank"},
+      {"name": "Discolored Coolant", "visual": "Coolant is brown, rusty, or contaminated", "severity": "medium", "action": "Flush cooling system and refill with correct coolant"},
+      {"name": "Missing Cap", "visual": "Cap missing or not sealing properly", "severity": "medium", "action": "Replace cap to maintain system pressure"}
+    ],
+    "service_checks": [14],
+    "safety": "NEVER open when engine is hot. Pressurized system can cause severe burns.",
+    "tools": ["Funnel", "Coolant tester"],
+    "difficulty": "beginner"
+  },
+
+  "OXYGEN SENSOR": {
+    "name": "Oxygen Sensor",
+    "category": "exhaust",
+    "description": "Monitors oxygen content in exhaust gases to help the ECU adjust the air-fuel mixture",
+    "location": "Threaded into the exhaust pipe, before and/or after the catalytic converter",
+    "faults": [
+      {"name": "Contaminated", "visual": "Check engine light, poor fuel economy, rough idle", "severity": "medium", "action": "Replace oxygen sensor. Use correct part for pre/post-cat position."},
+      {"name": "Wiring Damage", "visual": "Frayed or melted wires near exhaust heat", "severity": "medium", "action": "Repair wiring or replace sensor with pigtail"},
+      {"name": "Slow Response", "visual": "Sluggish throttle response, increased emissions", "severity": "medium", "action": "Replace sensor"}
+    ],
+    "service_checks": [],
+    "safety": "Exhaust components are extremely hot. Allow full cool-down.",
+    "tools": ["Oxygen sensor socket", "Penetrating oil", "Multimeter"],
+    "difficulty": "intermediate"
+  },
+
+  "PISTON": {
+    "name": "Piston",
+    "category": "engine",
+    "description": "Cylindrical component that moves up and down inside the cylinder, compressing air-fuel mixture and transmitting force to the crankshaft",
+    "location": "Inside each cylinder of the engine block",
+    "faults": [
+      {"name": "Ring Wear", "visual": "Blue exhaust smoke, high oil consumption", "severity": "high", "action": "Engine rebuild with new piston rings. Check cylinder bore."},
+      {"name": "Piston Slap", "visual": "Knocking noise from engine when cold", "severity": "medium", "action": "Monitor condition. May require rebore and new pistons."},
+      {"name": "Cracked Piston", "visual": "Loss of compression, rough running", "severity": "high", "action": "Engine rebuild required"}
+    ],
+    "service_checks": [],
+    "safety": "Internal engine component. Requires complete engine disassembly.",
+    "tools": ["Full engine rebuild tool set", "Ring compressor", "Torque wrench"],
+    "difficulty": "advanced"
+  },
+
+  "PRESSURE PLATE": {
+    "name": "Pressure Plate",
+    "category": "drivetrain",
+    "description": "Spring-loaded plate that clamps the clutch disc against the flywheel to transmit engine torque",
+    "location": "Bolted to the flywheel, between the flywheel and transmission",
+    "faults": [
+      {"name": "Worn Fingers", "visual": "Clutch does not fully engage or release, hard gear changes", "severity": "high", "action": "Replace clutch kit (pressure plate, disc, bearing)"},
+      {"name": "Hot Spots", "visual": "Blue discoloration on pressure plate surface", "severity": "medium", "action": "Resurface or replace. Indicates clutch slipping/overheating."},
+      {"name": "Broken Spring", "visual": "Clutch judder, uneven engagement", "severity": "high", "action": "Replace pressure plate"}
+    ],
+    "service_checks": [39],
+    "safety": "Requires transmission removal. Use transmission jack.",
+    "tools": ["Transmission jack", "Socket set", "Torque wrench", "Clutch alignment tool"],
+    "difficulty": "advanced"
+  },
+
+  "RADIATOR": {
+    "name": "Radiator",
+    "category": "cooling",
+    "description": "Heat exchanger that cools engine coolant by transferring heat to the air flowing through its fins",
+    "location": "Front of engine bay, directly behind the grille",
+    "faults": [
+      {"name": "Leaking", "visual": "Green/orange coolant drips, wet spots on radiator", "severity": "high", "action": "Locate leak. Minor leaks may be patched, major leaks require replacement."},
+      {"name": "Clogged Fins", "visual": "Debris, bugs, or dirt blocking airflow through fins", "severity": "medium", "action": "Clean with compressed air or gentle water spray from engine side"},
+      {"name": "Internal Blockage", "visual": "Engine overheating despite full coolant, uneven heat across radiator", "severity": "high", "action": "Flush radiator or replace"},
+      {"name": "Cracked Plastic Tanks", "visual": "Coolant leak at plastic-to-aluminium joints", "severity": "high", "action": "Replace radiator"}
+    ],
+    "service_checks": [73, 74],
+    "safety": "NEVER open radiator cap when engine is hot. Allow complete cool-down first.",
+    "tools": ["Socket set", "Pliers", "Drain pan", "Pressure tester"],
+    "difficulty": "intermediate"
+  },
+
+  "RADIATOR FAN": {
+    "name": "Radiator Fan",
+    "category": "cooling",
+    "description": "Draws air through the radiator to cool the engine, especially at low speeds or idle",
+    "location": "Attached to the radiator or driven by the engine, behind the radiator",
+    "faults": [
+      {"name": "Cracked Blade", "visual": "Visible crack, chip, or missing piece on fan blade", "severity": "high", "action": "Replace fan immediately. Broken blade can cause serious damage."},
+      {"name": "Not Engaging", "visual": "Fan does not spin when engine is hot", "severity": "high", "action": "Check fan clutch, relay, fuse, or temperature sensor"},
+      {"name": "Loose Mount", "visual": "Fan wobbles, scraping noise against shroud", "severity": "high", "action": "Tighten mounting bolts, check fan clutch"},
+      {"name": "Shroud Damage", "visual": "Cracked or broken fan shroud", "severity": "medium", "action": "Replace shroud to maintain proper airflow"}
+    ],
+    "service_checks": [76, 77],
+    "safety": "Fan can start unexpectedly with engine off on some vehicles. Keep hands clear.",
+    "tools": ["Socket set", "Wrench set"],
+    "difficulty": "intermediate"
+  },
+
+  "RADIATOR HOSE": {
+    "name": "Radiator Hose",
+    "category": "cooling",
+    "description": "Rubber hose connecting the engine to the radiator, carrying hot coolant to be cooled and returned",
+    "location": "Upper hose from engine top to radiator top; lower hose from radiator bottom to water pump",
+    "faults": [
+      {"name": "Bulging", "visual": "Hose appears swollen or ballooned at one point", "severity": "high", "action": "Replace hose immediately. Indicates weakening that could burst."},
+      {"name": "Cracking", "visual": "Surface cracks, especially near clamp areas", "severity": "medium", "action": "Replace hose before it fails"},
+      {"name": "Soft/Spongy", "visual": "Hose collapses easily when squeezed", "severity": "medium", "action": "Replace hose - internal degradation"},
+      {"name": "Leaking at Clamp", "visual": "Coolant drip or stain at hose clamp connection", "severity": "medium", "action": "Tighten clamp or replace. Check for hose neck corrosion."}
+    ],
+    "service_checks": [69],
+    "safety": "Hot coolant under pressure. Never open or disconnect when engine is hot.",
+    "tools": ["Pliers", "Screwdriver", "Hose clamps", "Drain pan"],
+    "difficulty": "beginner"
+  },
+
+  "RADIO": {
+    "name": "Radio/Stereo",
+    "category": "electrical",
+    "description": "In-vehicle entertainment and communication system",
+    "location": "Centre of the dashboard",
+    "faults": [
+      {"name": "No Power", "visual": "Radio screen blank, no sound", "severity": "low", "action": "Check fuse, wiring connector behind unit"},
+      {"name": "No Sound", "visual": "Display works but no audio output", "severity": "low", "action": "Check speaker wiring, amplifier fuse"},
+      {"name": "Static/Interference", "visual": "Poor reception, crackling sounds", "severity": "low", "action": "Check antenna connection, suppress ignition interference"}
+    ],
+    "service_checks": [],
+    "safety": "Disconnect battery before removing head unit.",
+    "tools": ["Radio removal keys", "Screwdriver"],
+    "difficulty": "beginner"
+  },
+
+  "RIM": {
+    "name": "Wheel Rim",
+    "category": "body",
+    "description": "Metal wheel that the tyre is mounted on, connects to the hub via wheel studs",
+    "location": "At each wheel position on the vehicle",
+    "faults": [
+      {"name": "Bent Rim", "visual": "Vibration at speed, visible wobble when spinning", "severity": "medium", "action": "Replace rim. Check tyre for damage as well."},
+      {"name": "Cracked Rim", "visual": "Visible crack in rim, slow tyre leak", "severity": "high", "action": "Replace rim immediately. Do not drive on a cracked rim."},
+      {"name": "Corrosion", "visual": "Flaking paint, rust, pitting on rim surface", "severity": "low", "action": "Clean and refinish, or replace if structural corrosion"},
+      {"name": "Loose Wheel Nuts", "visual": "Wheel movement, clicking noise while driving", "severity": "high", "action": "Torque wheel nuts to specification (440-590 Nm)"}
+    ],
+    "service_checks": [48, 52, 56, 60, 66, 67],
+    "safety": "Support vehicle on jack stands before removing wheels. Torque nuts in star pattern.",
+    "tools": ["41mm Socket", "Impact wrench", "Torque wrench"],
+    "difficulty": "beginner"
+  },
+
+  "SHIFT KNOB": {
+    "name": "Shift Knob",
+    "category": "drivetrain",
+    "description": "Handle on top of the gear shift lever used to change gears",
+    "location": "Inside the cab, on the gear shift lever",
+    "faults": [
+      {"name": "Loose Knob", "visual": "Shift knob rotates freely or is wobbly", "severity": "low", "action": "Tighten or re-thread shift knob"},
+      {"name": "Worn Pattern", "visual": "Gear position markings worn off", "severity": "low", "action": "Replace shift knob for clear gear identification"}
+    ],
+    "service_checks": [13],
+    "safety": "No special precautions needed.",
+    "tools": [],
+    "difficulty": "beginner"
+  },
+
+  "SIDE MIRROR": {
+    "name": "Side Mirror",
+    "category": "body",
+    "description": "Exterior mirror providing rear and side visibility for the driver",
+    "location": "Mounted on both sides of the cab, attached to door or A-pillar",
+    "faults": [
+      {"name": "Loose Mount", "visual": "Mirror vibrates or moves while driving", "severity": "medium", "action": "Tighten mounting bolts and check bracket condition"},
+      {"name": "Cracked Glass", "visual": "Broken or cracked mirror glass", "severity": "medium", "action": "Replace mirror glass or complete mirror assembly"},
+      {"name": "Adjustment Failure", "visual": "Mirror cannot be adjusted to correct position", "severity": "medium", "action": "Check adjustment mechanism, lubricate or replace"}
+    ],
+    "service_checks": [2],
+    "safety": "Functional mirrors are a legal requirement. Replace damaged mirrors promptly.",
+    "tools": ["Socket set", "Screwdriver"],
+    "difficulty": "beginner"
+  },
+
+  "SPARK PLUG": {
+    "name": "Spark Plug",
+    "category": "electrical",
+    "description": "Creates the electrical spark that ignites the air-fuel mixture in each cylinder",
+    "location": "Screwed into the cylinder head, one per cylinder, accessible from the top of the engine",
+    "faults": [
+      {"name": "Carbon Fouling", "visual": "Black, sooty deposits on electrode and insulator", "severity": "medium", "action": "Replace plug. Indicates rich mixture or oil burning."},
+      {"name": "Oil Fouling", "visual": "Wet, oily deposits on plug", "severity": "high", "action": "Replace plug. Investigate oil leak into cylinder (worn rings or valve seals)."},
+      {"name": "Worn Electrode", "visual": "Rounded or eroded centre electrode, wide gap", "severity": "medium", "action": "Replace spark plug. Check and set correct gap on new plug."},
+      {"name": "Cracked Insulator", "visual": "Visible crack in white ceramic insulator", "severity": "high", "action": "Replace immediately. Can cause misfire and engine damage."}
+    ],
+    "service_checks": [],
+    "safety": "Work on a cool engine. Remove one at a time to avoid mixing up wire order.",
+    "tools": ["Spark plug socket", "Ratchet", "Gap gauge", "Torque wrench"],
+    "difficulty": "beginner"
+  },
+
+  "SPOILER": {
+    "name": "Spoiler",
+    "category": "body",
+    "description": "Aerodynamic body panel that affects airflow and stability at speed",
+    "location": "Rear of vehicle, mounted on trunk lid or roof edge",
+    "faults": [
+      {"name": "Loose Mount", "visual": "Spoiler rattles or moves, mounting holes visible", "severity": "low", "action": "Tighten mounting hardware"},
+      {"name": "Cracked", "visual": "Visible crack or break in spoiler body", "severity": "low", "action": "Replace or repair with appropriate adhesive"}
+    ],
+    "service_checks": [],
+    "safety": "No special precautions needed.",
+    "tools": ["Socket set", "Screwdriver"],
+    "difficulty": "beginner"
+  },
+
+  "STARTER": {
+    "name": "Starter Motor",
+    "category": "electrical",
+    "description": "Electric motor that cranks the engine flywheel to start the engine",
+    "location": "Lower side of engine, bolted to the transmission bellhousing, engaging the flywheel",
+    "faults": [
+      {"name": "Clicking No Crank", "visual": "Rapid clicking sound when turning key, engine does not crank", "severity": "high", "action": "Check battery voltage first. If battery OK, replace starter solenoid or motor."},
+      {"name": "Grinding Noise", "visual": "Metal grinding sound during cranking", "severity": "high", "action": "Check starter bendix gear and flywheel ring gear teeth"},
+      {"name": "Slow Cranking", "visual": "Engine turns over slowly", "severity": "medium", "action": "Check battery and cable connections first, then test starter draw"},
+      {"name": "Stuck Engaged", "visual": "Starter continues running after engine starts", "severity": "high", "action": "Turn off engine immediately. Replace starter or solenoid."}
+    ],
+    "service_checks": [6],
+    "safety": "Disconnect battery before working on starter to prevent accidental engagement.",
+    "tools": ["Socket set", "Wrench set", "Multimeter"],
+    "difficulty": "intermediate"
+  },
+
+  "TAILLIGHTS": {
+    "name": "Tail Lights",
+    "category": "electrical",
+    "description": "Rear vehicle lights including brake lights, indicators, and running lights",
+    "location": "Rear of vehicle, mounted in the rear body panel",
+    "faults": [
+      {"name": "Burnt Bulb", "visual": "One or more rear lights not working", "severity": "medium", "action": "Replace bulb. Check for matching wattage."},
+      {"name": "Cracked Lens", "visual": "Broken or cracked tail light lens", "severity": "medium", "action": "Replace lens or assembly to prevent moisture damage"},
+      {"name": "Wiring Fault", "visual": "Intermittent operation, lights flicker", "severity": "medium", "action": "Check ground connection and wiring harness"}
+    ],
+    "service_checks": [15, 16],
+    "safety": "Functional brake lights are a legal requirement.",
+    "tools": ["Screwdriver", "Replacement bulbs"],
+    "difficulty": "beginner"
+  },
+
+  "THERMOSTAT": {
+    "name": "Thermostat",
+    "category": "cooling",
+    "description": "Temperature-sensitive valve that regulates coolant flow to maintain optimal engine operating temperature",
+    "location": "In the thermostat housing where the upper radiator hose meets the engine",
+    "faults": [
+      {"name": "Stuck Open", "visual": "Engine takes very long to warm up, heater blows cold", "severity": "medium", "action": "Replace thermostat"},
+      {"name": "Stuck Closed", "visual": "Engine overheats quickly, upper hose not getting hot", "severity": "high", "action": "Replace thermostat immediately to prevent engine damage"},
+      {"name": "Housing Leak", "visual": "Coolant leak at thermostat housing", "severity": "medium", "action": "Replace thermostat gasket, check housing for cracks"}
+    ],
+    "service_checks": [69, 73],
+    "safety": "Allow engine to cool before removal. Coolant will drain when thermostat is removed.",
+    "tools": ["Socket set", "Scraper", "New gasket", "Drain pan"],
+    "difficulty": "intermediate"
+  },
+
+  "TORQUE CONVERTER": {
+    "name": "Torque Converter",
+    "category": "drivetrain",
+    "description": "Fluid coupling between the engine and automatic transmission that multiplies torque and allows engine to idle while vehicle is stopped",
+    "location": "Between the engine and automatic transmission, bolted to the flywheel/flexplate",
+    "faults": [
+      {"name": "Shudder", "visual": "Vibration during light acceleration, feels like driving on rumble strips", "severity": "medium", "action": "May need transmission fluid flush or torque converter replacement"},
+      {"name": "Fluid Leak", "visual": "Transmission fluid leak at front of transmission", "severity": "high", "action": "Replace torque converter seal"},
+      {"name": "Stall Speed Issue", "visual": "Vehicle sluggish from stop, slipping sensation", "severity": "high", "action": "Test stall speed. Replace torque converter if out of specification."}
+    ],
+    "service_checks": [71],
+    "safety": "Requires transmission removal. Heavy component - use transmission jack.",
+    "tools": ["Transmission jack", "Socket set", "Torque wrench"],
+    "difficulty": "advanced"
+  },
+
+  "TRANSMISSION": {
+    "name": "Transmission",
+    "category": "drivetrain",
+    "description": "Gearbox that changes the gear ratio between the engine and drive wheels for different speeds and loads",
+    "location": "Bolted to the rear of the engine, extending under the vehicle",
+    "faults": [
+      {"name": "Fluid Leak", "visual": "Transmission fluid drip or wet area under vehicle", "severity": "medium", "action": "Identify leak source: seals, gaskets, or cooler lines. Repair and top up fluid."},
+      {"name": "Hard Shifting", "visual": "Difficulty engaging gears, grinding noise", "severity": "medium", "action": "Check fluid level and condition. May need linkage adjustment or synchro repair."},
+      {"name": "Slipping", "visual": "Engine revs rise without corresponding acceleration", "severity": "high", "action": "Check fluid level. May need transmission rebuild."},
+      {"name": "Loose Mounts", "visual": "Transmission vibrates, clunking when shifting", "severity": "medium", "action": "Torque mounting bolts to specification (62 Nm)"}
+    ],
+    "service_checks": [13, 34, 35, 38, 79],
+    "safety": "Support transmission properly when working underneath. Hot fluid can burn.",
+    "tools": ["24mm Spanner", "17mm Spanner", "Socket set", "Torque wrench", "Drain pan"],
+    "difficulty": "advanced"
+  },
+
+  "VACUUM BRAKE BOOSTER": {
+    "name": "Vacuum Brake Booster",
+    "category": "brake",
+    "description": "Uses engine vacuum to multiply the force applied to the brake pedal for easier braking",
+    "location": "Between the brake pedal and the master cylinder, on the firewall in the engine bay",
+    "faults": [
+      {"name": "Loss of Assist", "visual": "Brake pedal is hard to press, requires excessive force", "severity": "high", "action": "Check vacuum hose for leaks or disconnection. Test booster diaphragm."},
+      {"name": "Hissing Sound", "visual": "Hissing noise when pressing brake pedal", "severity": "medium", "action": "Check vacuum hose connections and booster diaphragm seal"},
+      {"name": "Brake Pedal Sinks", "visual": "Pedal slowly sinks to floor when held steady", "severity": "high", "action": "Check master cylinder for internal leak. May also be booster failure."}
+    ],
+    "service_checks": [11, 18],
+    "safety": "Braking system is safety critical. Test thoroughly after any repair. Do not drive if brakes are not functioning properly.",
+    "tools": ["Vacuum gauge", "Wrench set", "Brake fluid"],
+    "difficulty": "intermediate"
+  },
+
+  "VALVE LIFTER": {
+    "name": "Valve Lifter",
+    "category": "engine",
+    "description": "Transfers camshaft motion to the valves, either directly (OHC) or via pushrods (OHV)",
+    "location": "Inside the engine, between the camshaft and valve stems",
+    "faults": [
+      {"name": "Ticking Noise", "visual": "Rhythmic ticking or tapping from top of engine", "severity": "medium", "action": "Check oil level first. May need lifter replacement or adjustment."},
+      {"name": "Collapsed Lifter", "visual": "Persistent tick, misfire on one cylinder", "severity": "high", "action": "Replace lifter. Check camshaft lobe for wear."},
+      {"name": "Oil Starvation", "visual": "Multiple lifters ticking, especially on cold start", "severity": "medium", "action": "Check oil level and condition. Consider oil flush."}
+    ],
+    "service_checks": [],
+    "safety": "Internal engine component. Requires valve cover removal at minimum.",
+    "tools": ["Socket set", "Valve adjusting tool", "Feeler gauges"],
+    "difficulty": "advanced"
+  },
+
+  "WATER PUMP": {
+    "name": "Water Pump",
+    "category": "cooling",
+    "description": "Circulates coolant through the engine block, heater core, and radiator to maintain operating temperature",
+    "location": "Front of engine, driven by the timing belt/chain or serpentine belt",
+    "faults": [
+      {"name": "Bearing Noise", "visual": "Whining or grinding from front of engine, play in pump shaft", "severity": "high", "action": "Replace water pump. If timing belt driven, replace belt at same time."},
+      {"name": "Coolant Leak", "visual": "Coolant drip from weep hole at bottom of pump", "severity": "high", "action": "Replace water pump. Weep hole leak means internal seal has failed."},
+      {"name": "Impeller Failure", "visual": "Engine overheats but pump appears to be turning", "severity": "high", "action": "Replace water pump - impeller may be corroded or slipping on shaft"}
+    ],
+    "service_checks": [76],
+    "safety": "Allow engine to cool. Coolant system is pressurized when hot.",
+    "tools": ["Socket set", "Scraper", "New gasket", "Drain pan", "Torque wrench"],
+    "difficulty": "intermediate"
+  },
+
+  "WINDOW REGULATOR": {
+    "name": "Window Regulator",
+    "category": "body",
+    "description": "Mechanism inside the door that raises and lowers the window glass",
+    "location": "Inside each door panel",
+    "faults": [
+      {"name": "Motor Failure", "visual": "Window does not move, motor makes no sound", "severity": "medium", "action": "Check fuse and wiring first. Replace motor if faulty."},
+      {"name": "Slow Operation", "visual": "Window moves slowly or struggles to go up", "severity": "low", "action": "Lubricate tracks and check motor. May need replacement."},
+      {"name": "Glass Fell", "visual": "Window glass dropped inside the door", "severity": "medium", "action": "Replace window regulator mechanism"}
+    ],
+    "service_checks": [4],
+    "safety": "Disconnect battery before working inside door panels to avoid short circuits.",
+    "tools": ["Screwdriver set", "Trim panel removal tools", "Socket set"],
+    "difficulty": "intermediate"
+  }
+}

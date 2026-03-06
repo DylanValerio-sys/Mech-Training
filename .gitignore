@@ -21,3 +21,7 @@ Thumbs.db
 
 # Dataset images (too large for git)
 data/datasets/
+datasets/
+
+# Training runs (large checkpoint files)
+training/
